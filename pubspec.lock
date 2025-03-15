@@ -99,11 +99,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_web_plugins:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -112,14 +107,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.1"
-  hexcolor:
-    dependency: "direct main"
-    description:
-      name: hexcolor
-      sha256: c07f4bbb9095df87eeca87e7c69e8c3d60f70c66102d7b8d61c4af0453add3f6
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   http:
     dependency: transitive
     description:
@@ -192,6 +179,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.15.0"
+  page_transition:
+    dependency: "direct main"
+    description:
+      name: page_transition
+      sha256: "9d2a780d7d68b53ae82fbcc43e06a16195e6775e9aae40e55dc0cbb593460f9d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
   path:
     dependency: transitive
     description:

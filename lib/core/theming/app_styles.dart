@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nexus/src/core/theme/colors_manager.dart';
-import 'package:nexus/src/core/theme/font_weight_helper.dart';
+import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/core/theming/font_weight_helper.dart';
 
 abstract class AppStyles {
   static TextStyle aldrichRegular14Violet50 = GoogleFonts.aldrich(
