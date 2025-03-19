@@ -6,6 +6,10 @@ class Assets {
 
   static const String iconsPassword = "assets/icons/password.svg";
 
+  static const String iconsSplashArrow = "assets/icons/splash_arrow.svg";
+
   static const String imagesLogo = "assets/images/logo.png";
+
+  static const String imagesSplashBackground = "assets/images/splash_background.png";
 }
 

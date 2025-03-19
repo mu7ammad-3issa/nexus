@@ -31,8 +31,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.4
   flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.4
+  flutter_svg: ^2.0.17
   google_fonts: ^6.2.1
   page_transition: ^2.2.1
 
