@@ -19,4 +19,5 @@ class ColorsManager {
   static const Color green800 = Color(0xFF5C8217);
   static const Color green300 = Color(0xFFC4F270);
   static const Color brightLimeGreen = Color(0xFFAAEC26);
+  static const Color errorRed = Color(0xFFB30303);
 }

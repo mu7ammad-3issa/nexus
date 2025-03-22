@@ -1,20 +1,24 @@
-// import 'dart:io' show Platform;
-// import 'package:flutter/material.dart';
-// import 'package:tranquilo_app/core/widgets/social_media_container.dart';
+import 'package:flutter/material.dart';
+import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_widgets/social_media_container.dart';
+import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 
-// class SocialMediaButtons extends StatelessWidget {
-//   const SocialMediaButtons({super.key});
+class SocialMediaButtons extends StatelessWidget {
+  const SocialMediaButtons({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//       children: [
-//         const SocialMediaContainer(iconImage: 'assets/svgs/google.svg'),
-//         const SocialMediaContainer(iconImage: 'assets/svgs/facebook.svg'),
-//         if (Platform.isIOS)
-//           const SocialMediaContainer(iconImage: 'assets/svgs/apple.svg'),
-//       ],
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const SocialMediaContainer(
+          iconImage: Assets.iconsGoogle,
+        ),
+        horizontalSpace(19),
+        const SocialMediaContainer(
+          iconImage: Assets.iconsFacebook,
+        ),
+      ],
+    );
+  }
+}
