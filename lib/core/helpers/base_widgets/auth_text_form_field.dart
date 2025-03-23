@@ -56,65 +56,62 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
             ),
           ),
         ),
-        SizedBox(
-          height: 48.h,
-          child: TextFormField(
-            controller: widget.controller,
-            focusNode: widget.focusNode,
-            textInputAction: widget.textInputAction,
-            autofillHints: widget.keyboardType == TextInputType.emailAddress
-                ? [AutofillHints.email]
-                : widget.isPassword
-                    ? [AutofillHints.password]
-                    : null,
-            decoration: InputDecoration(
-              contentPadding: context.horizontal(16.h),
-              hintText: widget.hint,
-              hintStyle: AppStyles.aldrichRegular12Violet50.copyWith(
-                color: ColorsManager.grey200,
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.r),
-                borderSide:
-                    BorderSide(color: ColorsManager.grey200, width: 1.0.r),
-              ),
-              errorStyle: AppStyles.aldrichRegular14Violet50.copyWith(
-                color: ColorsManager.errorRed,
-              ),
-              prefixIcon: Padding(
-                padding: context.only(
-                    left: 16.w, top: 16.h, bottom: 16.h, right: 8.w),
-                child: widget.icon,
-              ),
-              prefixIconConstraints:
-                  BoxConstraints(minHeight: 24.h, minWidth: 24.w),
-              suffixIcon: widget.isPassword
-                  ? IconButton(
-                      onPressed: toggleVisibility,
-                      icon: isPasswordVisible
-                          ? const Icon(
-                              FontAwesomeIcons.eye,
-                              color: ColorsManager.grey500,
-                              size: 12,
-                            )
-                          : const Icon(
-                              FontAwesomeIcons.eyeSlash,
-                              color: ColorsManager.grey500,
-                              size: 12,
-                            ),
-                    )
+        TextFormField(
+          controller: widget.controller,
+          focusNode: widget.focusNode,
+          textInputAction: widget.textInputAction,
+          autofillHints: widget.keyboardType == TextInputType.emailAddress
+              ? [AutofillHints.email]
+              : widget.isPassword
+                  ? [AutofillHints.password]
                   : null,
-            ),
-            style: AppStyles.aldrichRegular14Violet50.copyWith(
+          decoration: InputDecoration(
+            contentPadding: context.horizontal(16.h),
+            hintText: widget.hint,
+            hintStyle: AppStyles.aldrichRegular12Violet50.copyWith(
               color: ColorsManager.grey200,
             ),
-            validator: widget.validator,
-            obscureText: widget.isPassword && !isPasswordVisible,
-            onSaved: widget.onSaved,
-            onChanged: widget.onChanged,
-            textCapitalization: widget.textCapitalization,
-            keyboardType: widget.keyboardType,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.r),
+              borderSide:
+                  BorderSide(color: ColorsManager.grey200, width: 1.0.r),
+            ),
+            errorStyle: AppStyles.aldrichRegular14Violet50.copyWith(
+              color: Colors.red,
+            ),
+            prefixIcon: Padding(
+              padding:
+                  context.only(left: 16.w, top: 16.h, bottom: 16.h, right: 8.w),
+              child: widget.icon,
+            ),
+            prefixIconConstraints:
+                BoxConstraints(minHeight: 24.h, minWidth: 24.w),
+            suffixIcon: widget.isPassword
+                ? IconButton(
+                    onPressed: toggleVisibility,
+                    icon: isPasswordVisible
+                        ? const Icon(
+                            FontAwesomeIcons.eye,
+                            color: ColorsManager.grey500,
+                            size: 12,
+                          )
+                        : const Icon(
+                            FontAwesomeIcons.eyeSlash,
+                            color: ColorsManager.grey500,
+                            size: 12,
+                          ),
+                  )
+                : null,
           ),
+          style: AppStyles.aldrichRegular14Violet50.copyWith(
+            color: ColorsManager.grey200,
+          ),
+          validator: widget.validator,
+          obscureText: widget.isPassword && !isPasswordVisible,
+          onSaved: widget.onSaved,
+          onChanged: widget.onChanged,
+          textCapitalization: widget.textCapitalization,
+          keyboardType: widget.keyboardType,
         ),
       ],
     );

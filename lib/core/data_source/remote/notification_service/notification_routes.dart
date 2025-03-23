@@ -1,7 +1,3 @@
-
-
-import '../../../constants/app_constants.dart';
-
 abstract interface class NotificationNavigation {
   void navigate();
 }
