@@ -62,4 +62,8 @@ extension Routes on BuildContext {
       ),
     );
   }
+
+  void pop<T>(BuildContext context, [T? result]) {
+    Navigator.pop<T>(context, result);
+  }
 }

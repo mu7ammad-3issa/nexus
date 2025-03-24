@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/features/auth/login/presentation/login_screen.dart';
+import 'package:nexus/features/auth/otp/presentation/otp_screen.dart';
 
 class Nexus extends StatelessWidget {
   const Nexus({super.key});
@@ -17,7 +18,7 @@ class Nexus extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Constants.scaffoldBackGroundColor,
         ),
-        home: const LoginScreen(),
+        home: const OtpScreen(),
       ),
     );
   }

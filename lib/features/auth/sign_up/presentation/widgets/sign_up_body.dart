@@ -30,7 +30,7 @@ class SignUpBody extends StatelessWidget {
           const SocialMediaButtons(),
           verticalSpace(24.h),
           HaveAccountQuestionText(
-            questionText: 'Already have an account?',
+            questionText: 'Already have an account? ',
             clickableText: 'Sign In',
             onTap: () {
               context.navigate(const LoginScreen());

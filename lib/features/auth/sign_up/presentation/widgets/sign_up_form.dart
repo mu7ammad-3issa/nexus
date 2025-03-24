@@ -61,7 +61,7 @@ class _SignUpFormState extends State<SignUpForm> {
             verticalSpace(24.h),
             AuthTextFormField(
               label: 'Password',
-              hint: 'Password',
+              hint: 'At least 8 characters',
               icon: SvgPicture.asset(
                 Assets.iconsPassword,
               ),
@@ -73,7 +73,7 @@ class _SignUpFormState extends State<SignUpForm> {
             verticalSpace(24.h),
             AuthTextFormField(
               label: 'Confirm Password',
-              hint: 'Password',
+              hint: 'Re-enter your password',
               icon: SvgPicture.asset(
                 Assets.iconsPassword,
               ),

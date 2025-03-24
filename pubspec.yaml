@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^6.2.1
   lottie: ^3.2.0
   page_transition: ^2.2.1
+  pinput: ^5.0.1
   shared_preferences: ^2.5.2
 
 dev_dependencies:
@@ -68,7 +69,6 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lottie/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
