@@ -16,6 +16,8 @@ class Assets {
 
   static const String imagesAndroid12Splash = "assets/images/android_12_splash.png";
 
+  static const String imagesDialogLogo = "assets/images/dialog_logo.svg";
+
   static const String imagesForgetPasswordWavyLine = "assets/images/forget_password_wavy_line.png";
 
   static const String imagesLogo = "assets/images/logo.png";
