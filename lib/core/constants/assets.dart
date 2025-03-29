@@ -2,7 +2,7 @@
 class Assets {
   Assets._();
   
-  static const String iconsChoosePlan = "assets/icons/choose_plan.svg";
+  static const String iconsChatbot = "assets/icons/chatbot.svg";
 
   static const String iconsDownload = "assets/icons/download.svg";
 
@@ -12,9 +12,17 @@ class Assets {
 
   static const String iconsGoogle = "assets/icons/google.svg";
 
+  static const String iconsHome = "assets/icons/home.svg";
+
+  static const String iconsMenu = "assets/icons/menu.svg";
+
   static const String iconsNotifications = "assets/icons/notifications.svg";
 
   static const String iconsPassword = "assets/icons/password.svg";
+
+  static const String iconsPlans = "assets/icons/plans.svg";
+
+  static const String iconsScan = "assets/icons/scan.svg";
 
   static const String iconsSplashArrow = "assets/icons/splash_arrow.svg";
 

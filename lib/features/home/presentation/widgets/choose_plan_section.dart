@@ -38,7 +38,7 @@ class ChoosePlanSection extends StatelessWidget {
                     ),
                     horizontalSpace(7),
                     SvgPicture.asset(
-                      Assets.iconsChoosePlan,
+                      Assets.iconsPlans,
                       width: 22,
                     ),
                   ],

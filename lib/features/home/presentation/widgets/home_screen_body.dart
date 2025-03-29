@@ -25,6 +25,7 @@ class HomeScreenBody extends StatelessWidget {
             const ChoosePlanSection(),
             verticalSpace(22),
             const DownloadGameSection(),
+            verticalSpace(33),
           ],
         ),
       ),
