@@ -24,6 +24,8 @@ class Assets {
 
   static const String iconsScan = "assets/icons/scan.svg";
 
+  static const String iconsScanInlined = "assets/icons/scan_inlined.svg";
+
   static const String iconsSplashArrow = "assets/icons/splash_arrow.svg";
 
   static const String iconsUser = "assets/icons/user.svg";
@@ -42,6 +44,8 @@ class Assets {
 
   static const String imagesLogo = "assets/images/logo.png";
 
+  static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
+
   static const String imagesOtpWavyLine = "assets/images/otp_wavy_line.png";
 
   static const String imagesPromotionalBannerBg = "assets/images/promotional_banner_bg.png";
@@ -53,6 +57,8 @@ class Assets {
   static const String imagesSignUpWavyLine = "assets/images/sign_up_wavy_line.png";
 
   static const String imagesSplashBackground = "assets/images/splash_background.png";
+
+  static const String imagesUserDefaultImage = "assets/images/user_default_image.png";
 
   static const String imagesVirtualRealityHeadset = "assets/images/virtual_reality_headset.png";
 

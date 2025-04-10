@@ -23,7 +23,7 @@ abstract class AppStyles {
     color: ColorsManager.violet100,
   );
 
-  static TextStyle aldrichRegular24 = GoogleFonts.aldrich(
+  static TextStyle aldrichRegular24white = GoogleFonts.aldrich(
     fontSize: 24.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.white,

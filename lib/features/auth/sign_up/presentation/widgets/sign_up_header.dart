@@ -9,7 +9,7 @@ class SignUpHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "Sign up",
-      style: AppStyles.aldrichRegular24.copyWith(
+      style: AppStyles.aldrichRegular24white.copyWith(
         color: ColorsManager.violet50,
       ),
     );

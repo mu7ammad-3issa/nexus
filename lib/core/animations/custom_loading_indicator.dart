@@ -26,7 +26,7 @@ class CustomLoadingIndicator extends StatelessWidget {
           verticalSpace(65),
           Text(
             text ?? 'Loading...',
-            style: AppStyles.aldrichRegular24.copyWith(
+            style: AppStyles.aldrichRegular24white.copyWith(
               color: ColorsManager.violet50,
             ),
           ),

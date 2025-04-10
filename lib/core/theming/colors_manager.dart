@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ColorsManager {
   static const Color violet50 = Color(0xFFE7E7E9);
   static const Color violet500 = Color(0xFF120F23);
+  static const Color violet200 = Color(0xFF92919A);
   static const Color lightGray = Color(0xFFF9F9F9);
   static const Color green500 = Color(0xFFA7EC29);
   static const Color grey200 = Color(0xFFD9D9D9);

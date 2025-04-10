@@ -16,7 +16,7 @@ class LoginHeader extends StatelessWidget {
           left: 147.w,
           child: Text(
             "Sign in",
-            style: AppStyles.aldrichRegular24.copyWith(
+            style: AppStyles.aldrichRegular24white.copyWith(
               color: ColorsManager.violet50,
             ),
           ),

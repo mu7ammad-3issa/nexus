@@ -8,9 +8,10 @@ import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
 import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/burn_detection/burn_detection_screen.dart';
+import 'package:nexus/features/burn_scan/burn_scan_screen.dart';
 import 'package:nexus/features/chatbot/chatbot_screen.dart';
 import 'package:nexus/features/home/presentation/home_screen.dart';
+import 'package:nexus/features/home/presentation/widgets/profile_menu.dart';
 import 'package:nexus/features/plans/plans_screen.dart';
 
 class AppLayout extends StatefulWidget {
@@ -24,6 +25,7 @@ class _AppLayoutState extends State<AppLayout> {
   int selectedPageIndex = 0;
   late List<Widget> screens;
   late PageController pageController;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final List<Map<String, dynamic>> navItems = [
     {'icon': Assets.iconsHome, 'label': 'Home'},
@@ -37,7 +39,7 @@ class _AppLayoutState extends State<AppLayout> {
     screens = [
       const HomeScreen(),
       const ChatbotScreen(),
-      const BurnDetectionScreen(),
+      const BurnScanScreen(),
       const PlansScreen(),
     ];
     pageController = PageController();
@@ -110,8 +112,12 @@ class _AppLayoutState extends State<AppLayout> {
     );
 
     return Scaffold(
-      // extendBody: true,
-      // to show the content of the screen under and between the FAB and the bottom app bar
+      // extendBody: true, // to show the content of the screen under and between the FAB and the bottom app bar
+      key: _scaffoldKey,
+      drawer: const ProfileMenu(
+        userName: 'Esraa Morsii',
+        userEmail: 'esraamorsii13@gmail.com',
+      ),
       body: SafeArea(
         child: PopScope(
           canPop: false,
@@ -148,7 +154,13 @@ class _AppLayoutState extends State<AppLayout> {
     return InkWell(
       splashColor: ThemeData().splashColor,
       splashFactory: InkRipple.splashFactory,
-      onTap: () => onItemTapped(index),
+      onTap: () {
+        if (index == 3) {
+          _scaffoldKey.currentState?.openDrawer(); // Open the drawer
+        } else {
+          onItemTapped(index);
+        }
+      },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
