@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/helpers/base_widgets/app_text_button.dart';
+import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
 import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
@@ -16,7 +17,9 @@ class BurnScanScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            verticalSpace(179.h),
+            verticalSpace(40.h),
+            const CustomHeader(text: ''),
+            verticalSpace(119.h),
             Stack(
               alignment: Alignment.center,
               children: [

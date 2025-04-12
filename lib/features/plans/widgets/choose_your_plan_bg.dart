@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nexus/core/constants/assets.dart';
 
-class HomeBackGround extends StatelessWidget {
-  const HomeBackGround({
-    super.key,
-  });
+class ChooseYourPlanBg extends StatelessWidget {
+  const ChooseYourPlanBg({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +11,7 @@ class HomeBackGround extends StatelessWidget {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            Assets.imagesHomeBackGround,
+            Assets.imagesChooseYourPlanBg,
           ),
           fit: BoxFit.fitWidth,
         ),

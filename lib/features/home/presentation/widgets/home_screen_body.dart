@@ -17,15 +17,15 @@ class HomeScreenBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            verticalSpace(33),
+            verticalSpace(33.h),
             const WelcomeHeader(),
-            verticalSpace(33),
+            verticalSpace(33.h),
             const PromotionalBanner(),
-            verticalSpace(48),
+            verticalSpace(48.h),
             const ChoosePlanSection(),
-            verticalSpace(22),
+            verticalSpace(22.h),
             const DownloadGameSection(),
-            verticalSpace(33),
+            verticalSpace(33.h),
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
+import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
 import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
@@ -12,7 +13,7 @@ import 'package:nexus/features/burn_scan/burn_scan_screen.dart';
 import 'package:nexus/features/chatbot/chatbot_screen.dart';
 import 'package:nexus/features/home/presentation/home_screen.dart';
 import 'package:nexus/features/home/presentation/widgets/profile_menu.dart';
-import 'package:nexus/features/plans/plans_screen.dart';
+import 'package:nexus/features/plans/choose_your_plan_screen.dart';
 
 class AppLayout extends StatefulWidget {
   const AppLayout({super.key});
@@ -39,8 +40,6 @@ class _AppLayoutState extends State<AppLayout> {
     screens = [
       const HomeScreen(),
       const ChatbotScreen(),
-      const BurnScanScreen(),
-      const PlansScreen(),
     ];
     pageController = PageController();
     super.initState();
@@ -134,7 +133,9 @@ class _AppLayoutState extends State<AppLayout> {
         child: FloatingActionButton(
           shape: const OvalBorder(),
           onPressed: () {
-            pageController.jumpToPage(2);
+            context.navigate(
+              const BurnScanScreen(),
+            );
           },
           backgroundColor: Constants.appColor,
           child: Padding(
@@ -157,6 +158,10 @@ class _AppLayoutState extends State<AppLayout> {
       onTap: () {
         if (index == 3) {
           _scaffoldKey.currentState?.openDrawer(); // Open the drawer
+        } else if (index == 2) {
+          context.navigate(
+            const ChooseYourPlanScreen(),
+          );
         } else {
           onItemTapped(index);
         }

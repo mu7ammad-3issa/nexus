@@ -32,6 +32,8 @@ class Assets {
 
   static const String imagesAndroid12Splash = "assets/images/android_12_splash.png";
 
+  static const String imagesChooseYourPlanBg = "assets/images/choose_your_plan_bg.png";
+
   static const String imagesDialogLogo = "assets/images/dialog_logo.svg";
 
   static const String imagesForgetPasswordWavyLine = "assets/images/forget_password_wavy_line.png";
@@ -47,6 +49,8 @@ class Assets {
   static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
 
   static const String imagesOtpWavyLine = "assets/images/otp_wavy_line.png";
+
+  static const String imagesPlanCardBg = "assets/images/plan_card_bg.png";
 
   static const String imagesPromotionalBannerBg = "assets/images/promotional_banner_bg.png";
 
