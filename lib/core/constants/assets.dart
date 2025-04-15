@@ -4,6 +4,8 @@ class Assets {
   
   static const String iconsChatbot = "assets/icons/chatbot.svg";
 
+  static const String iconsCheckCircle = "assets/icons/check_circle.svg";
+
   static const String iconsDownload = "assets/icons/download.svg";
 
   static const String iconsEmail = "assets/icons/email.svg";
@@ -32,7 +34,7 @@ class Assets {
 
   static const String imagesAndroid12Splash = "assets/images/android_12_splash.png";
 
-  static const String imagesChooseYourPlanBg = "assets/images/choose_your_plan_bg.png";
+  static const String imagesBasicPlan = "assets/images/basic_plan.svg";
 
   static const String imagesDialogLogo = "assets/images/dialog_logo.svg";
 
@@ -52,6 +54,10 @@ class Assets {
 
   static const String imagesPlanCardBg = "assets/images/plan_card_bg.png";
 
+  static const String imagesPremiumBackground = "assets/images/premium_background.png";
+
+  static const String imagesPremiumPlan = "assets/images/premium_plan.svg";
+
   static const String imagesPromotionalBannerBg = "assets/images/promotional_banner_bg.png";
 
   static const String imagesResetPasswordWavyLine = "assets/images/reset_password_wavy_line.png";
@@ -61,6 +67,8 @@ class Assets {
   static const String imagesSignUpWavyLine = "assets/images/sign_up_wavy_line.png";
 
   static const String imagesSplashBackground = "assets/images/splash_background.png";
+
+  static const String imagesSubscriptionBackground = "assets/images/subscription_background.png";
 
   static const String imagesUserDefaultImage = "assets/images/user_default_image.png";
 

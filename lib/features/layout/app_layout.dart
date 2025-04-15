@@ -13,7 +13,7 @@ import 'package:nexus/features/burn_scan/burn_scan_screen.dart';
 import 'package:nexus/features/chatbot/chatbot_screen.dart';
 import 'package:nexus/features/home/presentation/home_screen.dart';
 import 'package:nexus/features/home/presentation/widgets/profile_menu.dart';
-import 'package:nexus/features/plans/choose_your_plan_screen.dart';
+import 'package:nexus/features/plans/subscription_screen.dart';
 
 class AppLayout extends StatefulWidget {
   const AppLayout({super.key});
@@ -160,7 +160,7 @@ class _AppLayoutState extends State<AppLayout> {
           _scaffoldKey.currentState?.openDrawer(); // Open the drawer
         } else if (index == 2) {
           context.navigate(
-            const ChooseYourPlanScreen(),
+            const SubscriptionScreen(),
           );
         } else {
           onItemTapped(index);
