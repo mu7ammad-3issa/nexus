@@ -6,6 +6,8 @@ class Assets {
 
   static const String iconsCheckCircle = "assets/icons/check_circle.svg";
 
+  static const String iconsCrown = "assets/icons/crown.svg";
+
   static const String iconsDownload = "assets/icons/download.svg";
 
   static const String iconsEmail = "assets/icons/email.svg";
@@ -59,6 +61,8 @@ class Assets {
   static const String imagesPremiumPlan = "assets/images/premium_plan.svg";
 
   static const String imagesPromotionalBannerBg = "assets/images/promotional_banner_bg.png";
+
+  static const String imagesRanksBackground = "assets/images/ranks_background.png";
 
   static const String imagesResetPasswordWavyLine = "assets/images/reset_password_wavy_line.png";
 

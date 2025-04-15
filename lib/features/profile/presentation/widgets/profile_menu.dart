@@ -3,10 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/constants/size_config.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
+import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
 import 'package:nexus/core/helpers/base_widgets/divider.dart';
 import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/features/leaderboard/leaderboard_screen.dart';
 
 class ProfileMenu extends StatelessWidget {
   final String userName;
@@ -74,9 +76,21 @@ class ProfileMenu extends StatelessWidget {
           ),
 
           // Profile options
-          _buildMenuItem('My Profile', Icons.person_outline),
-          _buildMenuItem('Settings', Icons.settings_outlined),
-          _buildMenuItem('My Progress', Icons.trending_up_outlined),
+          _buildMenuItem(
+            'My Profile',
+            Icons.person_outline,
+            onTap: () => context.navigate(
+              const LeaderboardScreen(),
+            ),
+          ),
+          _buildMenuItem(
+            'Settings',
+            Icons.settings_outlined,
+          ),
+          _buildMenuItem(
+            'My Progress',
+            Icons.trending_up_outlined,
+          ),
 
           AppDivider(
             height: 50.h,
@@ -96,7 +110,7 @@ class ProfileMenu extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem(String title, IconData icon) {
+  Widget _buildMenuItem(String title, IconData icon, {VoidCallback? onTap}) {
     return ListTile(
       dense: true,
       visualDensity: const VisualDensity(vertical: -3),
@@ -111,9 +125,7 @@ class ProfileMenu extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      onTap: () {
-        // Handle menu item tap
-      },
+      onTap: onTap,
     );
   }
 }
