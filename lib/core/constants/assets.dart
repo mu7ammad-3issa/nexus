@@ -38,6 +38,8 @@ class Assets {
 
   static const String imagesBasicPlan = "assets/images/basic_plan.svg";
 
+  static const String imagesChatContainerBackground = "assets/images/chat_container_background.png";
+
   static const String imagesDialogLogo = "assets/images/dialog_logo.svg";
 
   static const String imagesForgetPasswordWavyLine = "assets/images/forget_password_wavy_line.png";
@@ -51,6 +53,8 @@ class Assets {
   static const String imagesLogo = "assets/images/logo.png";
 
   static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
+
+  static const String imagesMessageBackground = "assets/images/message_background.png";
 
   static const String imagesOtpWavyLine = "assets/images/otp_wavy_line.png";
 

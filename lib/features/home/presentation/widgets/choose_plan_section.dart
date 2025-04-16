@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
+import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
 import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/features/plans/subscription_screen.dart';
 
 class ChoosePlanSection extends StatelessWidget {
   const ChoosePlanSection({super.key});
@@ -54,7 +56,11 @@ class ChoosePlanSection extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.navigate(
+                const SubscriptionScreen(),
+              );
+            },
             child: Text(
               'Show Plans',
               style: AppStyles.aldrichRegular12Violet50.copyWith(

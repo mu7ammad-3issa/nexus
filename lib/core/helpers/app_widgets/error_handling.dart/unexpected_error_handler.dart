@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_widgets/text.dart';
+import 'package:nexus/core/helpers/base_widgets/app_text.dart';
 
 class UnexpectedErrorHandler extends StatelessWidget {
   final FlutterErrorDetails errorDetails;
@@ -45,7 +45,7 @@ class PreviewError extends StatelessWidget {
               padding: context.vertical(16.h),
               child: AppText(text: errorDetails),
             ),
-            AppText(
+            const AppText(
               text:
                   'Please wait some time until the error is resolved and try again later',
             ),
