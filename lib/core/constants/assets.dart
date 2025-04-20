@@ -64,6 +64,8 @@ class Assets {
 
   static const String imagesPremiumPlan = "assets/images/premium_plan.svg";
 
+  static const String imagesPrivacyBackground = "assets/images/Privacy_background.png";
+
   static const String imagesPromotionalBannerBg = "assets/images/promotional_banner_bg.png";
 
   static const String imagesRanksBackground = "assets/images/ranks_background.png";

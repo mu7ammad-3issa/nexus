@@ -9,6 +9,7 @@ import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/leaderboard/leaderboard_screen.dart';
+import 'package:nexus/features/profile/presentation/screens/privacy_screen.dart';
 
 class ProfileMenu extends StatelessWidget {
   final String userName;
@@ -79,9 +80,7 @@ class ProfileMenu extends StatelessWidget {
           _buildMenuItem(
             'My Profile',
             Icons.person_outline,
-            onTap: () => context.navigate(
-              const LeaderboardScreen(),
-            ),
+            onTap: () {},
           ),
           _buildMenuItem(
             'Settings',
@@ -90,6 +89,9 @@ class ProfileMenu extends StatelessWidget {
           _buildMenuItem(
             'My Progress',
             Icons.trending_up_outlined,
+            onTap: () => context.navigate(
+              const LeaderboardScreen(),
+            ),
           ),
 
           AppDivider(
@@ -101,10 +103,25 @@ class ProfileMenu extends StatelessWidget {
           ),
 
           // App info options
-          _buildMenuItem('Terms & Conditions', Icons.description_outlined),
-          _buildMenuItem('Privacy & Policy', Icons.privacy_tip_outlined),
-          _buildMenuItem('FAQs', Icons.help_outline),
-          _buildMenuItem('App Rating', Icons.star_border),
+          _buildMenuItem(
+            'Terms & Conditions',
+            Icons.description_outlined,
+          ),
+          _buildMenuItem(
+            'Privacy & Policy',
+            Icons.privacy_tip_outlined,
+            onTap: () => context.navigate(
+              const PrivacyScreen(),
+            ),
+          ),
+          _buildMenuItem(
+            'FAQs',
+            Icons.help_outline,
+          ),
+          _buildMenuItem(
+            'App Rating',
+            Icons.star_border,
+          ),
         ],
       ),
     );
