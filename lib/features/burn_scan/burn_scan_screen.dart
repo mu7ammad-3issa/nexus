@@ -46,8 +46,12 @@ class BurnScanScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: Constants.appColor,
                   ),
-                  child: Image.asset(
-                    Assets.iconsScanInlined,
+                  child: SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: Image.asset(
+                      Assets.iconsScanInlined,
+                    ),
                   ),
                 ),
               ],

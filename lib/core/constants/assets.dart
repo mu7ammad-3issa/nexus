@@ -34,6 +34,8 @@ class Assets {
 
   static const String iconsUser = "assets/icons/user.svg";
 
+  static const String imagesAboutUsBackground = "assets/images/about_us_background.png";
+
   static const String imagesAndroid12Splash = "assets/images/android_12_splash.png";
 
   static const String imagesBasicPlan = "assets/images/basic_plan.svg";
@@ -55,6 +57,8 @@ class Assets {
   static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
 
   static const String imagesMessageBackground = "assets/images/message_background.png";
+
+  static const String imagesNexusTeam = "assets/images/nexus_team.svg";
 
   static const String imagesOtpWavyLine = "assets/images/otp_wavy_line.png";
 

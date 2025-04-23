@@ -10,6 +10,7 @@ import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/leaderboard/leaderboard_screen.dart';
 import 'package:nexus/features/profile/presentation/screens/privacy_screen.dart';
+import 'package:nexus/features/profile/presentation/screens/profile_screen.dart';
 
 class ProfileMenu extends StatelessWidget {
   final String userName;
@@ -80,7 +81,9 @@ class ProfileMenu extends StatelessWidget {
           _buildMenuItem(
             'My Profile',
             Icons.person_outline,
-            onTap: () {},
+            onTap: () => context.navigate(
+              const ProfileScreen(),
+            ),
           ),
           _buildMenuItem(
             'Settings',

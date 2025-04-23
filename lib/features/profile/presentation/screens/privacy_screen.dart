@@ -20,13 +20,17 @@ class PrivacyScreen extends StatelessWidget {
             Image.asset(
               Assets.imagesPrivacyBackground,
               fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
             ),
             // Main content
             SingleChildScrollView(
               child: Column(
                 children: [
                   verticalSpace(40.h),
-                  const CustomHeader(text: 'Privacy & Policy'),
+                  const CustomHeader(
+                    text: 'Privacy & Policy',
+                  ),
                   verticalSpace(60.h),
                   Padding(
                     padding: context.horizontal(25.w),

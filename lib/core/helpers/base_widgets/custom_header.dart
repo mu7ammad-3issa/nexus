@@ -13,27 +13,25 @@ class CustomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: context.horizontal(24.w),
-      child: Row(
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: ColorsManager.lightGray,
-              size: 20,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: ColorsManager.lightGray,
+                size: 20,
+              ),
+              onPressed: () {
+                context.pop(context);
+              },
             ),
-            onPressed: () {
-              context.pop(context);
-            },
-          ),
-          const Spacer(
-            flex: 1,
           ),
           Text(
             text,
             style: AppStyles.aldrichRegular20Violet50,
-          ),
-          const Spacer(
-            flex: 2,
           ),
         ],
       ),
