@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
   
+  static const String iconsAccountDelete = "assets/icons/account-delete.svg";
+
   static const String iconsChatbot = "assets/icons/chatbot.svg";
 
   static const String iconsCheckCircle = "assets/icons/check_circle.svg";
@@ -12,7 +14,13 @@ class Assets {
 
   static const String iconsEmail = "assets/icons/email.svg";
 
+  static const String iconsExclamationCircle = "assets/icons/exclamation-circle.svg";
+
   static const String iconsFacebook = "assets/icons/facebook.svg";
+
+  static const String iconsFacebookMessenger = "assets/icons/facebook-messenger.svg";
+
+  static const String iconsGoldenStar = "assets/icons/golden_star.svg";
 
   static const String iconsGoogle = "assets/icons/google.svg";
 
@@ -75,6 +83,8 @@ class Assets {
   static const String imagesRanksBackground = "assets/images/ranks_background.png";
 
   static const String imagesResetPasswordWavyLine = "assets/images/reset_password_wavy_line.png";
+
+  static const String imagesSettingsBackground = "assets/images/settings_background.png";
 
   static const String imagesSignInWavyLine = "assets/images/sign_in_wavy_line.png";
 

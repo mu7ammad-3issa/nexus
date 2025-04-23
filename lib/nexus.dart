@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/app_constants.dart';
-import 'package:nexus/features/layout/app_layout.dart';
+import 'package:nexus/features/profile/presentation/screens/settings_screen.dart';
 
 class Nexus extends StatelessWidget {
   const Nexus({super.key});
@@ -17,7 +17,7 @@ class Nexus extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Constants.scaffoldBackGroundColor,
         ),
-        home: const AppLayout(),
+        home: const SettingsScreen(),
       ),
     );
   }
