@@ -19,6 +19,7 @@ class AppTextButton extends StatelessWidget {
   final FontWeight? fontWeight;
   final EdgeInsetsGeometry? padding;
   final Widget? child; // Custom child widget (optional)
+  final double? horizontalPadding;
 
   const AppTextButton({
     super.key,
@@ -34,7 +35,8 @@ class AppTextButton extends StatelessWidget {
     this.fontSize,
     this.fontWeight,
     this.padding,
-    this.child, // Custom child widget
+    this.child,
+    this.horizontalPadding, // Custom child widget
   });
 
   @override
@@ -42,7 +44,7 @@ class AppTextButton extends StatelessWidget {
     final bool isDisabled = onPressed == null;
 
     return Padding(
-      padding: context.horizontal(24.w),
+      padding: context.horizontal(horizontalPadding ?? 24.w),
       child: SizedBox(
         width: width ?? double.infinity,
         height: height ?? 48.h,

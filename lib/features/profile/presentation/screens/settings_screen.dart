@@ -6,6 +6,7 @@ import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
 import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
 import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
 import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/show_dialog.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/profile/presentation/screens/about_us_screen.dart';
@@ -142,7 +143,9 @@ class SettingsScreen extends StatelessWidget {
                               color: ColorsManager.violet50,
                               size: 20,
                             ),
-                            onTap: () {},
+                            onTap: () {
+                              confirmAccountDeleteDialog(context);
+                            },
                           ),
                         ],
                       ),
