@@ -1,23 +1,27 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:nexus/core/theming/colors_manager.dart';
 
-// import '../theming/colors_manger.dart';
+class SwitchWidget extends StatelessWidget {
+  final bool value;
+  final void Function(bool) onChanged;
+  const SwitchWidget({super.key, required this.value, required this.onChanged});
 
-// class SwitchWidget extends StatelessWidget {
-//   final bool value;
-//   final void Function(bool) onChanged;
-//   const SwitchWidget({super.key, required this.value, required this.onChanged});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Switch(
-//       value: value,
-//       onChanged: onChanged,
-//       activeColor: ColorsManager.white,
-//       activeTrackColor: ColorsManager.oceanBlue,
-//       inactiveThumbColor: ColorsManager.white,
-//       inactiveTrackColor: ColorsManager.inActiveSwitch,
-//       trackOutlineColor:
-//           const WidgetStatePropertyAll<Color>(ColorsManager.inActiveSwitch),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+      value: value,
+      onChanged: onChanged,
+      thumbIcon: WidgetStateProperty.all(
+        const Icon(
+          Icons.circle,
+          size: 35,
+          color: ColorsManager.violet500,
+        ),
+      ),
+      activeColor: ColorsManager.violet500,
+      activeTrackColor: ColorsManager.green500,
+      inactiveThumbColor: ColorsManager.violet500,
+      inactiveTrackColor: ColorsManager.inActiveSwitch,
+    );
+  }
+}

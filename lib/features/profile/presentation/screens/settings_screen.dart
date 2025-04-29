@@ -9,7 +9,9 @@ import 'package:nexus/core/helpers/base_widgets/spacing.dart';
 import 'package:nexus/core/helpers/helper_methods/show_dialog.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/features/plans/subscription_screen.dart';
 import 'package:nexus/features/profile/presentation/screens/about_us_screen.dart';
+import 'package:nexus/features/profile/presentation/screens/notifications_settings_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -52,7 +54,11 @@ class SettingsScreen extends StatelessWidget {
                     child: _buildListTile(
                       icon: Assets.iconsNotifications,
                       title: 'Notifications',
-                      onTap: () {},
+                      onTap: () {
+                        context.navigate(
+                          const NotificationsSettingsScreen(),
+                        );
+                      },
                     ),
                   ),
                   // Change Subscription Section
@@ -70,7 +76,11 @@ class SettingsScreen extends StatelessWidget {
                     child: _buildListTile(
                       icon: Assets.iconsGoldenStar,
                       title: 'Premium',
-                      onTap: () {},
+                      onTap: () {
+                        context.navigate(
+                          const SubscriptionScreen(),
+                        );
+                      },
                     ),
                   ),
                   // Support Section
