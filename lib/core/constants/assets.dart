@@ -50,6 +50,8 @@ class Assets {
 
   static const String imagesChatContainerBackground = "assets/images/chat_container_background.png";
 
+  static const String imagesContactUsBackground = "assets/images/contact_us_background.png";
+
   static const String imagesDialogLogo = "assets/images/dialog_logo.svg";
 
   static const String imagesForgetPasswordWavyLine = "assets/images/forget_password_wavy_line.png";

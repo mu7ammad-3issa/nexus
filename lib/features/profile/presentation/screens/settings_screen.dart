@@ -11,6 +11,7 @@ import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/plans/subscription_screen.dart';
 import 'package:nexus/features/profile/presentation/screens/about_us_screen.dart';
+import 'package:nexus/features/profile/presentation/screens/contact_us_screen.dart';
 import 'package:nexus/features/profile/presentation/screens/notifications_settings_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -165,7 +166,11 @@ class SettingsScreen extends StatelessWidget {
                   _buildListTile(
                     icon: Assets.iconsFacebookMessenger,
                     title: 'Contact Us',
-                    onTap: () {},
+                    onTap: () {
+                      context.navigate(
+                        const ContactUsScreen(),
+                      );
+                    },
                   ),
                 ],
               ),
