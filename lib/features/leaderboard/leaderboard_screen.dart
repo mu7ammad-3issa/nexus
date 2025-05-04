@@ -329,7 +329,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: rank == 1
-                      ? const Color(0xffFCD012)
+                      ? ColorsManager.avatarBorder
                       : rank == 2
                           ? const Color(0xffA37B78)
                           : const Color(0xffE5D6D0),

@@ -4,6 +4,8 @@ class Assets {
   
   static const String iconsAccountDelete = "assets/icons/account-delete.svg";
 
+  static const String iconsCar = "assets/icons/car.svg";
+
   static const String iconsCertificate = "assets/icons/certificate.svg";
 
   static const String iconsChatbot = "assets/icons/chatbot.svg";
@@ -14,6 +16,8 @@ class Assets {
 
   static const String iconsDownload = "assets/icons/download.svg";
 
+  static const String iconsEllipse = "assets/icons/ellipse.svg";
+
   static const String iconsEmail = "assets/icons/email.svg";
 
   static const String iconsExclamationCircle = "assets/icons/exclamation-circle.svg";
@@ -22,11 +26,21 @@ class Assets {
 
   static const String iconsFacebookMessenger = "assets/icons/facebook-messenger.svg";
 
+  static const String iconsFactory = "assets/icons/factory.svg";
+
+  static const String iconsFire = "assets/icons/fire.svg";
+
   static const String iconsGoldenStar = "assets/icons/golden_star.svg";
 
   static const String iconsGoogle = "assets/icons/google.svg";
 
   static const String iconsHome = "assets/icons/home.svg";
+
+  static const String iconsHomeInlined = "assets/icons/home_inlined.svg";
+
+  static const String iconsLogout = "assets/icons/logout.svg";
+
+  static const String iconsMedal = "assets/icons/medal.svg";
 
   static const String iconsMenu = "assets/icons/menu.svg";
 
@@ -39,6 +53,8 @@ class Assets {
   static const String iconsScan = "assets/icons/scan.svg";
 
   static const String iconsScanInlined = "assets/icons/scan_inlined.svg";
+
+  static const String iconsSettings = "assets/icons/settings.svg";
 
   static const String iconsSplashArrow = "assets/icons/splash_arrow.svg";
 
@@ -69,6 +85,8 @@ class Assets {
   static const String imagesLogo = "assets/images/logo.png";
 
   static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
+
+  static const String imagesLogoutDialog = "assets/images/logout_dialog.png";
 
   static const String imagesMessageBackground = "assets/images/message_background.png";
 
@@ -106,7 +124,7 @@ class Assets {
 
   static const String imagesSubscriptionBackground = "assets/images/subscription_background.png";
 
-  static const String imagesUserDefaultImage = "assets/images/user_default_image.png";
+  static const String imagesUserDefault = "assets/images/user_default.png";
 
   static const String imagesVirtualRealityHeadset = "assets/images/virtual_reality_headset.png";
 

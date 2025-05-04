@@ -11,6 +11,7 @@ import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/leaderboard/leaderboard_screen.dart';
 import 'package:nexus/features/profile/presentation/screens/privacy_screen.dart';
 import 'package:nexus/features/profile/presentation/screens/profile_screen.dart';
+import 'package:nexus/features/profile/presentation/screens/settings_screen.dart';
 
 class ProfileMenu extends StatelessWidget {
   final String userName;
@@ -47,7 +48,7 @@ class ProfileMenu extends StatelessWidget {
                 ListTile(
                   leading: ClipOval(
                     child: Image.asset(
-                      Assets.imagesUserDefaultImage,
+                      Assets.imagesUserDefault,
                       width: 50.w,
                       height: 50.w,
                       fit: BoxFit.cover,
@@ -88,6 +89,9 @@ class ProfileMenu extends StatelessWidget {
           _buildMenuItem(
             'Settings',
             Icons.settings_outlined,
+            onTap: () => context.navigate(
+              const SettingsScreen(),
+            ),
           ),
           _buildMenuItem(
             'My Progress',

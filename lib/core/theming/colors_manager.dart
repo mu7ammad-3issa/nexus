@@ -23,4 +23,5 @@ class ColorsManager {
   static const Color brightLimeGreen = Color(0xFFAAEC26);
   static const Color errorRed = Color(0xFFB30303);
   static const Color premium = Color(0xFFFFC107);
+  static const Color avatarBorder = Color(0xffFCD012);
 }

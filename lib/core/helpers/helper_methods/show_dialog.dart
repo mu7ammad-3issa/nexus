@@ -127,3 +127,63 @@ void confirmAccountDeleteDialog(BuildContext context) {
     ),
   );
 }
+
+void confirmLogoutDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      backgroundColor: Constants.scaffoldBackGroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.r),
+      ),
+      child: Padding(
+        padding: context.symmetric(horizontal: 42.w),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            verticalSpace(63.h),
+            Image.asset(
+              Assets.imagesLogoutDialog,
+              width: 131.w,
+              height: 79.h,
+            ),
+            verticalSpace(35.h),
+            Text(
+              'Oh no! You’re leaving...',
+              style: AppStyles.aldrichRegular20Violet50,
+              textAlign: TextAlign.center,
+            ),
+            verticalSpace(30.h),
+            SizedBox(
+              height: 48.h,
+              child: AppTextButton(
+                text: 'Naah,Just kidding',
+                horizontalPadding: 0,
+                textColor: ColorsManager.violet500,
+                backgroundColor: ColorsManager.green500,
+                onPressed: () {
+                  context.pop(context); // Dismiss dialog
+                },
+              ),
+            ),
+            verticalSpace(30.h),
+            SizedBox(
+              height: 48.h,
+              child: AppTextButton(
+                text: 'Yes, Log Me Out',
+                horizontalPadding: 0,
+                textColor: ColorsManager.green500,
+                backgroundColor: ColorsManager.violet500,
+                borderColor: ColorsManager.green500,
+                onPressed: () {
+                  // Implement logout logic here
+                },
+              ),
+            ),
+            verticalSpace(46.h),
+          ],
+        ),
+      ),
+    ),
+  );
+}

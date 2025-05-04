@@ -44,7 +44,7 @@ class MyCertificateCard extends StatelessWidget {
             // CertificateDetails
             child: Row(
               children: [
-                SvgPicture.asset(Assets.iconsCertificate),
+                SvgPicture.asset(Assets.iconsMedal),
                 horizontalSpace(2),
                 Text(
                   'Completed: Jan 15, 2024',
