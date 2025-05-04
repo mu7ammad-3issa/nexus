@@ -4,6 +4,8 @@ class Assets {
   
   static const String iconsAccountDelete = "assets/icons/account-delete.svg";
 
+  static const String iconsCertificate = "assets/icons/certificate.svg";
+
   static const String iconsChatbot = "assets/icons/chatbot.svg";
 
   static const String iconsCheckCircle = "assets/icons/check_circle.svg";
@@ -48,6 +50,8 @@ class Assets {
 
   static const String imagesBasicPlan = "assets/images/basic_plan.svg";
 
+  static const String imagesCertificate = "assets/images/certificate.png";
+
   static const String imagesChatContainerBackground = "assets/images/chat_container_background.png";
 
   static const String imagesContactUsBackground = "assets/images/contact_us_background.png";
@@ -67,6 +71,12 @@ class Assets {
   static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
 
   static const String imagesMessageBackground = "assets/images/message_background.png";
+
+  static const String imagesMyCertificateBackground = "assets/images/my_certificate_background.png";
+
+  static const String imagesMyCertificateCardBackground = "assets/images/my_certificate_card_background.png";
+
+  static const String imagesMyCertificateContainerBackground = "assets/images/my_certificate_container_background.png";
 
   static const String imagesNexusTeam = "assets/images/nexus_team.svg";
 

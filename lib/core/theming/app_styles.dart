@@ -22,6 +22,11 @@ abstract class AppStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.violet100,
   );
+  static TextStyle aldrichRegular18Violet50 = GoogleFonts.aldrich(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.violet50,
+  );
 
   static TextStyle aldrichRegular24white = GoogleFonts.aldrich(
     fontSize: 24.sp,
@@ -38,6 +43,7 @@ abstract class AppStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.violet50,
   );
+
   static TextStyle aldrichRegular48Black = GoogleFonts.aldrich(
     fontSize: 48.sp,
     fontWeight: FontWeightHelper.regular,
