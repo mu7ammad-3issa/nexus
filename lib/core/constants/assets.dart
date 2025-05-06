@@ -14,6 +14,8 @@ class Assets {
 
   static const String iconsCheckCircle = "assets/icons/check_circle.svg";
 
+  static const String iconsCongratulations = "assets/icons/congratulations.svg";
+
   static const String iconsCrown = "assets/icons/crown.svg";
 
   static const String iconsDownload = "assets/icons/download.svg";

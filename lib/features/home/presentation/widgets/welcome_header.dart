@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
 import 'package:nexus/core/theming/app_styles.dart';
+import 'package:nexus/features/home/presentation/screens/notifications_screen.dart';
 
 class WelcomeHeader extends StatefulWidget {
   const WelcomeHeader({super.key});
@@ -42,7 +44,9 @@ class _WelcomeListTileState extends State<WelcomeHeader> {
         ),
       ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          context.navigate(const NotificationsScreen());
+        },
         icon: SvgPicture.asset(Assets.iconsNotifications),
       ),
     );

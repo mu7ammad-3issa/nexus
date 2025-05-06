@@ -11,7 +11,7 @@ import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/burn_scan/burn_scan_screen.dart';
 import 'package:nexus/features/chatbot/screens/start_chat_screen.dart';
-import 'package:nexus/features/home/presentation/home_screen.dart';
+import 'package:nexus/features/home/presentation/screens/home_screen.dart';
 import 'package:nexus/features/profile/presentation/widgets/profile_menu.dart';
 import 'package:nexus/features/plans/subscription_screen.dart';
 
