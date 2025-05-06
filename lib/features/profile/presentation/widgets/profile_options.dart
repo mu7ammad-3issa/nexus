@@ -23,7 +23,7 @@ class ProfileOptions extends StatelessWidget {
           child: _buildListTile(
             icon: Assets.iconsUser,
             title: 'Edit Profile',
-            trailingArrow: false,
+            trailingArrow: true,
             onTap: () {
               context.navigate(const EditProfileScreen());
             },

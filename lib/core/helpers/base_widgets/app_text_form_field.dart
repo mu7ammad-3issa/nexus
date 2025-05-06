@@ -9,7 +9,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? enabledBorder;
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
-  final String hintText;
+  final String? hintText;
   final bool? isObscureText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
@@ -38,7 +38,7 @@ class AppTextFormField extends StatelessWidget {
     this.enabledBorder,
     this.inputTextStyle,
     this.hintStyle,
-    required this.hintText,
+    this.hintText,
     this.isObscureText,
     this.suffixIcon,
     this.prefixIcon,
@@ -89,9 +89,11 @@ class AppTextFormField extends StatelessWidget {
       autofillHints: autofillHints,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: contentPadding ?? EdgeInsets.symmetric(vertical: 16.h),
+        contentPadding: contentPadding ??
+            EdgeInsets.only(
+                top: 16.h, bottom: 16.h, left: prefixIcon == null ? 16.w : 0),
         enabledBorder: enabledBorder ??
-            buildOutlineInputBorder(color: ColorsManager.violet200),
+            buildOutlineInputBorder(color: ColorsManager.violet50),
         focusedBorder: focusedBorder ??
             buildOutlineInputBorder(color: ColorsManager.violet200),
         focusedErrorBorder: buildOutlineInputBorder(color: Colors.red),
