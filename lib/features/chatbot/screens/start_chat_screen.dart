@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/app_text_button.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
+import 'package:nexus/core/routing/routes.dart';
+import 'package:nexus/core/widgets/app_text_button.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
-import 'package:nexus/features/chatbot/screens/chat_screen.dart';
+
+import '../../../core/theming/colors_manager.dart';
 
 class StartChatScreen extends StatelessWidget {
   const StartChatScreen({super.key});
@@ -38,7 +39,7 @@ class StartChatScreen extends StatelessWidget {
               Text(
                 'Nexi AI',
                 style: AppStyles.aldrichRegular24white.copyWith(
-                  color: Constants.appColor,
+                  color: ColorsManager.appColor,
                 ),
               ),
               verticalSpace(69.h),
@@ -50,8 +51,8 @@ class StartChatScreen extends StatelessWidget {
               AppTextButton(
                 text: 'Start Chat',
                 onPressed: () {
-                  context.navigate(
-                    ChatScreen(),
+                  context.pushNamed(
+                    Routes.chatScreen,
                   );
                 },
               ),

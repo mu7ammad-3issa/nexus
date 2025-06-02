@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/assets.dart';
-import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/widgets/custom_header.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/features/home/presentation/widgets/notification_item.dart';
 
 class NotificationsScreen extends StatelessWidget {

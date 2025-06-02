@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 

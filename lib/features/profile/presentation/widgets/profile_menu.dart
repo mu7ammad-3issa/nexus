@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/constants/size_config.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/divider.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/routing/routes.dart';
+import 'package:nexus/core/widgets/divider.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/leaderboard/leaderboard_screen.dart';
-import 'package:nexus/features/profile/presentation/screens/privacy_screen.dart';
-import 'package:nexus/features/profile/presentation/screens/profile_screen.dart';
-import 'package:nexus/features/profile/presentation/screens/settings_screen.dart';
 
 class ProfileMenu extends StatelessWidget {
   final String userName;
@@ -82,22 +79,22 @@ class ProfileMenu extends StatelessWidget {
           _buildMenuItem(
             'My Profile',
             Icons.person_outline,
-            onTap: () => context.navigate(
-              const ProfileScreen(),
+            onTap: () => context.pushNamed(
+              Routes.profileScreen,
             ),
           ),
           _buildMenuItem(
             'Settings',
             Icons.settings_outlined,
-            onTap: () => context.navigate(
-              const SettingsScreen(),
+            onTap: () => context.pushNamed(
+              Routes.settingsScreen,
             ),
           ),
           _buildMenuItem(
             'My Progress',
             Icons.trending_up_outlined,
-            onTap: () => context.navigate(
-              const LeaderboardScreen(),
+            onTap: () => context.pushNamed(
+              Routes.leaderboardScreen,
             ),
           ),
 
@@ -117,8 +114,8 @@ class ProfileMenu extends StatelessWidget {
           _buildMenuItem(
             'Privacy & Policy',
             Icons.privacy_tip_outlined,
-            onTap: () => context.navigate(
-              const PrivacyScreen(),
+            onTap: () => context.pushNamed(
+              Routes.privacyScreen,
             ),
           ),
           _buildMenuItem(

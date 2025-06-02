@@ -1,7 +1,5 @@
 import 'package:nexus/core/helpers/helper_methods/app_regex.dart';
 
-import '../../constants/app_constants.dart';
-
 class Validators {
   static String? validateEmpty(
     String? value,
@@ -35,8 +33,7 @@ class Validators {
   ) {
     if (value?.trim().isEmpty ?? true) {
       return 'Please Enter Phone';
-    } else if (!RegExp(Constants.phoneRegExp).hasMatch(value!) ||
-        value.length < 10) {
+    } else if (!AppRegex.isPhoneNumberValid(value!) || value.length < 10) {
       return 'invalid phone format or length must be less than 10';
     }
     return null;

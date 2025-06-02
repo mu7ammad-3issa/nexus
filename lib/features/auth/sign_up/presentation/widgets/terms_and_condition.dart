@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
 import 'package:nexus/core/theming/app_styles.dart';
+import 'package:nexus/core/theming/colors_manager.dart';
 
 class TermsAndCondition extends StatefulWidget {
   final Function(bool) onChanged;
@@ -24,7 +24,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
       child: Row(
         children: [
           Checkbox(
-            activeColor: Constants.appColor,
+            activeColor: ColorsManager.appColor,
             checkColor: Colors.white,
             value: _isChecked,
             onChanged: (bool? value) {
@@ -44,7 +44,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 TextSpan(
                   text: 'Terms & Conditions',
                   style: AppStyles.aldrichRegular14Violet50.copyWith(
-                    color: Constants.appColor,
+                    color: ColorsManager.appColor,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
