@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 
@@ -170,7 +169,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       size: 20,
                     ),
                     onPressed: () {
-                      context.pop(context); // Fixed navigation
+                      context.pop(); // Fixed navigation
                     },
                   ),
                   const Spacer(flex: 60),
@@ -264,7 +263,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       child: Container(
         padding: context.symmetric(horizontal: 25.w, vertical: 12.h),
         decoration: BoxDecoration(
-          color: isSelected ? Constants.appColor : Colors.transparent,
+          color: isSelected ? ColorsManager.appColor : Colors.transparent,
           borderRadius: BorderRadius.circular(24.r),
         ),
         child: Text(

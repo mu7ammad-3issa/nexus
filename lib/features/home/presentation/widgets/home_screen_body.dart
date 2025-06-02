@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/features/home/presentation/widgets/choose_plan_section.dart';
 import 'package:nexus/features/home/presentation/widgets/download_game_section.dart';
 import 'package:nexus/features/home/presentation/widgets/promotional_banner.dart';

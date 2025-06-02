@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
-import 'package:nexus/core/helpers/base_widgets/app_text_button.dart';
-import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/widgets/app_text_button.dart';
+import 'package:nexus/core/widgets/custom_header.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 
@@ -28,7 +27,7 @@ class BurnScanScreen extends StatelessWidget {
                   height: 130,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Constants.appColor.withOpacity(0.15),
+                    color: ColorsManager.appColor.withOpacity(0.15),
                   ),
                 ),
                 Container(
@@ -36,15 +35,15 @@ class BurnScanScreen extends StatelessWidget {
                   height: 109,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Constants.appColor.withOpacity(0.38),
+                    color: ColorsManager.appColor.withOpacity(0.38),
                   ),
                 ),
                 Container(
                   width: 90,
                   height: 90,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Constants.appColor,
+                    color: ColorsManager.appColor,
                   ),
                   child: Center(
                     child: Image.asset(

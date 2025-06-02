@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_widgets/app_text_button.dart';
-import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/widgets/app_text_button.dart';
+import 'package:nexus/core/widgets/custom_header.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/plans/widgets/subscription_header.dart';
@@ -194,7 +193,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
           border: _selectedPlan == value
               ? Border.all(
                   color: _selectedPlan == 0
-                      ? Constants.appColor
+                      ? ColorsManager.appColor
                       : ColorsManager.premium,
                   width: 1,
                 )
@@ -222,7 +221,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                 fillColor: WidgetStateProperty.resolveWith<Color>(
                   (Set<WidgetState> states) {
                     if (states.contains(WidgetState.selected)) {
-                      return Constants.appColor;
+                      return ColorsManager.appColor;
                     }
                     return ColorsManager.violet300;
                   },
@@ -238,7 +237,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                   Text(
                     duration,
                     style: AppStyles.aldrichRegular16Violet100.copyWith(
-                      color: Constants.appColor,
+                      color: ColorsManager.appColor,
                     ),
                   ),
                   Text(

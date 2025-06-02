@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/app_text_button.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/routing/routes.dart';
+import 'package:nexus/core/widgets/app_text_button.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/auth/login/presentation/login_screen.dart';
 
 void passwordResetSuccessDialog(BuildContext context) {
   showDialog(
     context: context,
     // barrierDismissible: false,
     builder: (context) => Dialog(
-      backgroundColor: Constants.scaffoldBackGroundColor,
+      backgroundColor: ColorsManager.scaffoldBackGroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.r),
       ),
@@ -41,14 +40,14 @@ void passwordResetSuccessDialog(BuildContext context) {
           ),
           TextButton(
             onPressed: () {
-              context.replaceRoute(
-                const LoginScreen(),
+              context.pushReplacementNamed(
+                Routes.loginScreen,
               );
             },
             child: Text(
               'OK',
               style: AppStyles.aldrichRegular16Violet100.copyWith(
-                color: Constants.appColor,
+                color: ColorsManager.appColor,
               ),
             ),
           ),
@@ -64,7 +63,7 @@ void confirmAccountDeleteDialog(BuildContext context) {
     context: context,
     // barrierDismissible: false,
     builder: (context) => Dialog(
-      backgroundColor: Constants.scaffoldBackGroundColor,
+      backgroundColor: ColorsManager.scaffoldBackGroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
       ),
@@ -100,7 +99,7 @@ void confirmAccountDeleteDialog(BuildContext context) {
                     backgroundColor: Colors.transparent,
                     borderColor: ColorsManager.violet50,
                     onPressed: () {
-                      context.pop(context);
+                      context.pop();
                     },
                   ),
                 ),
@@ -114,7 +113,7 @@ void confirmAccountDeleteDialog(BuildContext context) {
                     borderColor: ColorsManager.deletionColor,
                     onPressed: () {
                       // Implement delete logic here
-                      context.pop(context); // Dismiss dialog
+                      context.pop(); // Dismiss dialog
                     },
                   ),
                 ),
@@ -132,7 +131,7 @@ void confirmLogoutDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) => Dialog(
-      backgroundColor: Constants.scaffoldBackGroundColor,
+      backgroundColor: ColorsManager.scaffoldBackGroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.r),
       ),
@@ -162,7 +161,7 @@ void confirmLogoutDialog(BuildContext context) {
                 textColor: ColorsManager.violet500,
                 backgroundColor: ColorsManager.green500,
                 onPressed: () {
-                  context.pop(context); // Dismiss dialog
+                  context.pop(); // Dismiss dialog
                 },
               ),
             ),

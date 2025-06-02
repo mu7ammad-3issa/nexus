@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nexus/core/constants/app_constants.dart';
+import 'package:nexus/core/routing/app_router.dart';
+import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/features/layout/app_layout.dart';
 
+import 'core/constants/constants.dart';
+import 'core/routing/routes.dart';
+
 class Nexus extends StatelessWidget {
-  const Nexus({super.key});
+  final AppRouter appRouter;
+  const Nexus({super.key, required this.appRouter});
 
   // This widget is the root of your application.
   @override
@@ -15,8 +20,11 @@ class Nexus extends StatelessWidget {
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          scaffoldBackgroundColor: Constants.scaffoldBackGroundColor,
+          primaryColor: ColorsManager.appColor,
+          scaffoldBackgroundColor: ColorsManager.scaffoldBackGroundColor,
         ),
+        initialRoute: isUserLoggedIn ? Routes.homeScreen : Routes.loginScreen,
+        onGenerateRoute: appRouter.generateRoute,
         home: const AppLayout(),
       ),
     );

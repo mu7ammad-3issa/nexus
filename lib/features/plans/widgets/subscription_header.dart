@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 
@@ -31,7 +31,7 @@ class SubscriptionHeader extends StatelessWidget {
               size: 20,
             ),
             onPressed: () {
-              context.pop(context);
+              context.pop();
             },
           ),
           Spacer(

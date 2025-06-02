@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/widgets/custom_header.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/helpers/helper_methods/show_dialog.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/plans/subscription_screen.dart';
-import 'package:nexus/features/profile/presentation/screens/about_us_screen.dart';
-import 'package:nexus/features/profile/presentation/screens/contact_us_screen.dart';
-import 'package:nexus/features/profile/presentation/screens/notifications_settings_screen.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -56,8 +54,8 @@ class SettingsScreen extends StatelessWidget {
                       icon: Assets.iconsNotifications,
                       title: 'Notifications',
                       onTap: () {
-                        context.navigate(
-                          const NotificationsSettingsScreen(),
+                        context.pushNamed(
+                          Routes.notificationsSettingsScreen,
                         );
                       },
                     ),
@@ -78,8 +76,8 @@ class SettingsScreen extends StatelessWidget {
                       icon: Assets.iconsGoldenStar,
                       title: 'Premium',
                       onTap: () {
-                        context.navigate(
-                          const SubscriptionScreen(),
+                        context.pushNamed(
+                          Routes.subscriptionScreen,
                         );
                       },
                     ),
@@ -133,8 +131,8 @@ class SettingsScreen extends StatelessWidget {
                               size: 20,
                             ),
                             onTap: () {
-                              context.navigate(
-                                const AboutUsScreen(),
+                              context.pushNamed(
+                                Routes.aboutUsScreen,
                               );
                             },
                           ),
@@ -167,8 +165,8 @@ class SettingsScreen extends StatelessWidget {
                     icon: Assets.iconsFacebookMessenger,
                     title: 'Contact Us',
                     onTap: () {
-                      context.navigate(
-                        const ContactUsScreen(),
+                      context.pushNamed(
+                        Routes.contactUsScreen,
                       );
                     },
                   ),

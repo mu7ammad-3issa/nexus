@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColorsManager {
+  static const appColor = ColorsManager.green500;
+  static const scaffoldBackGroundColor = ColorsManager.violet500;
   static const Color violet50 = Color(0xFFE7E7E9);
   static const Color violet500 = Color(0xFF120F23);
   static const Color violet200 = Color(0xFF92919A);

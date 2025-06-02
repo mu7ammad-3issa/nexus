@@ -2,18 +2,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
+import 'package:nexus/core/routing/routes.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/burn_scan/burn_scan_screen.dart';
 import 'package:nexus/features/chatbot/screens/start_chat_screen.dart';
 import 'package:nexus/features/home/presentation/screens/home_screen.dart';
 import 'package:nexus/features/profile/presentation/widgets/profile_menu.dart';
-import 'package:nexus/features/plans/subscription_screen.dart';
 
 class AppLayout extends StatefulWidget {
   const AppLayout({super.key});
@@ -65,7 +63,7 @@ class _AppLayoutState extends State<AppLayout> {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Constants.appColor.withOpacity(0.1),
+            color: ColorsManager.appColor.withOpacity(0.1),
             spreadRadius: 0,
             blurRadius: 12.9,
             offset: const Offset(0, -5),
@@ -133,11 +131,11 @@ class _AppLayoutState extends State<AppLayout> {
         child: FloatingActionButton(
           shape: const OvalBorder(),
           onPressed: () {
-            context.navigate(
-              const BurnScanScreen(),
+            context.pushNamed(
+              Routes.burnScanScreen,
             );
           },
-          backgroundColor: Constants.appColor,
+          backgroundColor: ColorsManager.appColor,
           child: Padding(
             padding: context.all(13),
             child: SvgPicture.asset(
@@ -159,8 +157,8 @@ class _AppLayoutState extends State<AppLayout> {
         if (index == 3) {
           _scaffoldKey.currentState?.openDrawer(); // Open the drawer
         } else if (index == 2) {
-          context.navigate(
-            const SubscriptionScreen(),
+          context.pushNamed(
+            Routes.subscriptionScreen,
           );
         } else {
           onItemTapped(index);
@@ -173,7 +171,7 @@ class _AppLayoutState extends State<AppLayout> {
             icon,
             colorFilter: ColorFilter.mode(
               selectedPageIndex == index
-                  ? Constants.appColor
+                  ? ColorsManager.appColor
                   : ColorsManager.violet50,
               BlendMode.srcIn,
             ),
@@ -183,7 +181,7 @@ class _AppLayoutState extends State<AppLayout> {
             label,
             style: AppStyles.aldrichRegular12Violet50.copyWith(
               color: selectedPageIndex == index
-                  ? Constants.appColor
+                  ? ColorsManager.appColor
                   : ColorsManager.violet50,
             ),
           ),

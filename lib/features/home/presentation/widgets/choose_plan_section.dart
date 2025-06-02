@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/constants/assets.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/plans/subscription_screen.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class ChoosePlanSection extends StatelessWidget {
   const ChoosePlanSection({super.key});
@@ -20,7 +20,7 @@ class ChoosePlanSection extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
-          color: Constants.appColor,
+          color: ColorsManager.appColor,
         ),
       ),
       child: Row(
@@ -57,16 +57,16 @@ class ChoosePlanSection extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              context.navigate(
-                const SubscriptionScreen(),
+              context.pushNamed(
+                Routes.subscriptionScreen,
               );
             },
             child: Text(
               'Show Plans',
               style: AppStyles.aldrichRegular12Violet50.copyWith(
-                color: Constants.appColor,
+                color: ColorsManager.appColor,
                 decoration: TextDecoration.underline,
-                decorationColor: Constants.appColor,
+                decorationColor: ColorsManager.appColor,
               ),
             ),
           ),

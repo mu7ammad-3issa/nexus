@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nexus/core/helpers/base_extensions/context/routes.dart';
-import 'package:nexus/core/helpers/base_widgets/have_account_question_text.dart';
-import 'package:nexus/core/helpers/base_widgets/or_divider.dart';
-import 'package:nexus/core/helpers/base_widgets/social_media_buttons.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
-import 'package:nexus/features/auth/login/presentation/login_screen.dart';
+import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
+import 'package:nexus/core/widgets/have_account_question_text.dart';
+import 'package:nexus/core/widgets/or_divider.dart';
+import 'package:nexus/core/widgets/social_media_buttons.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/features/auth/sign_up/presentation/widgets/sign_up_form_with_button.dart';
 import 'package:nexus/features/auth/sign_up/presentation/widgets/sign_up_header.dart';
+
+import '../../../../../core/routing/routes.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({
@@ -33,7 +34,7 @@ class SignUpBody extends StatelessWidget {
             questionText: 'Already have an account? ',
             clickableText: 'Sign In',
             onTap: () {
-              context.navigate(const LoginScreen());
+              context.pushNamed(Routes.loginScreen);
             },
           ),
           verticalSpace(34.h),

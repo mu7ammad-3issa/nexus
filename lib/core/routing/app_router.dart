@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+import '../../features/auth/forget_password/presentation/forget_password_screen.dart';
+import '../../features/auth/login/presentation/login_screen.dart';
+import '../../features/auth/otp/presentation/otp_screen.dart';
+import '../../features/auth/reset_password/presentation/reset_password_screen.dart';
+import '../../features/auth/sign_up/presentation/sign_up_screen.dart';
+import '../../features/burn_scan/burn_scan_screen.dart';
+import '../../features/chatbot/screens/chat_screen.dart';
+import '../../features/chatbot/screens/start_chat_screen.dart';
+import '../../features/home/presentation/screens/home_screen.dart';
+import '../../features/home/presentation/screens/notifications_screen.dart';
+import '../../features/leaderboard/leaderboard_screen.dart';
+import '../../features/plans/subscription_screen.dart';
+import '../../features/profile/presentation/screens/about_us_screen.dart';
+import '../../features/profile/presentation/screens/contact_us_screen.dart';
+import '../../features/profile/presentation/screens/edit_profile_screen.dart';
+import '../../features/profile/presentation/screens/notifications_settings_screen.dart';
+import '../../features/profile/presentation/screens/privacy_screen.dart';
+import '../../features/profile/presentation/screens/profile_screen.dart';
+import '../../features/profile/presentation/screens/settings_screen.dart';
+import 'routes.dart';
+
+class AppRouter {
+  Route? generateRoute(RouteSettings settings) {
+    // this arguments to be passed to any screen like this {arguments as className}
+    final arguments = settings.arguments;
+
+    switch (settings.name) {
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.loginScreen:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case Routes.signUpScreen:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case Routes.forgetPasswordScreen:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routes.resetPasswordScreen:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+      case Routes.otpScreen:
+        return MaterialPageRoute(builder: (_) => const OtpScreen());
+      case Routes.subscriptionScreen:
+        return MaterialPageRoute(builder: (_) => const SubscriptionScreen());
+      case Routes.profileScreen:
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case Routes.startChatScreen:
+        return MaterialPageRoute(builder: (_) => const StartChatScreen());
+      case Routes.chatScreen:
+        return MaterialPageRoute(builder: (_) => const ChatScreen());
+      case Routes.settingsScreen:
+        return MaterialPageRoute(builder: (_) => const SettingsScreen());
+      case Routes.aboutUsScreen:
+        return MaterialPageRoute(builder: (_) => const AboutUsScreen());
+      case Routes.contactUsScreen:
+        return MaterialPageRoute(builder: (_) => const ContactUsScreen());
+      case Routes.burnScanScreen:
+        return MaterialPageRoute(builder: (_) => const BurnScanScreen());
+      case Routes.notificationsScreen:
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
+      case Routes.editProfileScreen:
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+      case Routes.privacyScreen:
+        return MaterialPageRoute(builder: (_) => const PrivacyScreen());
+      case Routes.leaderboardScreen:
+        return MaterialPageRoute(builder: (_) => const LeaderboardScreen());
+      case Routes.notificationsSettingsScreen:
+        return MaterialPageRoute(
+            builder: (_) => const NotificationsSettingsScreen());
+
+      default:
+        return null;
+    }
+  }
+}

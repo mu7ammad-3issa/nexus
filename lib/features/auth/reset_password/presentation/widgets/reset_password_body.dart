@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nexus/core/helpers/base_widgets/custom_header.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/widgets/custom_header.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/features/auth/reset_password/presentation/widgets/reset_password_form_with_button.dart';
 
 class ResetPasswordBody extends StatelessWidget {

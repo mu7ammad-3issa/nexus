@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nexus/core/constants/app_constants.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
-import 'package:nexus/core/helpers/base_widgets/app_text_button.dart';
-import 'package:nexus/core/helpers/base_widgets/spacing.dart';
+import 'package:nexus/core/widgets/app_text_button.dart';
+import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:pinput/pinput.dart';
 
@@ -89,13 +88,13 @@ class _PinputExampleState extends State<OtpForm> {
               ),
               focusedPinTheme: defaultPinTheme.copyWith(
                 decoration: defaultPinTheme.decoration!.copyWith(
-                  border: Border.all(color: Constants.appColor),
+                  border: Border.all(color: ColorsManager.appColor),
                 ),
               ),
               submittedPinTheme: defaultPinTheme.copyWith(
                 decoration: defaultPinTheme.decoration!.copyWith(
                   color: fillColor,
-                  border: Border.all(color: Constants.appColor),
+                  border: Border.all(color: ColorsManager.appColor),
                 ),
               ),
               errorPinTheme: defaultPinTheme.copyBorderWith(
