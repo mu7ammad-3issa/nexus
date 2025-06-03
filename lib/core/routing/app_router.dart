@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nexus/core/di/dependency_injectiond.dart';
 import '../../features/auth/forget_password/presentation/forget_password_screen.dart';
+import '../../features/auth/login/logic/cubit/login_cubit.dart';
 import '../../features/auth/login/ui/login_screen.dart';
 import '../../features/auth/otp/presentation/otp_screen.dart';
 import '../../features/auth/reset_password/presentation/reset_password_screen.dart';
@@ -29,7 +32,12 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
       case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case Routes.forgetPasswordScreen:
