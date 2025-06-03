@@ -6,8 +6,8 @@ import 'package:nexus/core/widgets/have_account_question_text.dart';
 import 'package:nexus/core/widgets/or_divider.dart';
 import 'package:nexus/core/widgets/social_media_buttons.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
-import 'package:nexus/features/auth/login/presentation/widgets/login_form_with_button.dart';
-import 'package:nexus/features/auth/login/presentation/widgets/login_header.dart';
+import 'package:nexus/features/auth/login/ui/widgets/login_form_with_button.dart';
+import 'package:nexus/features/auth/login/ui/widgets/login_header.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
