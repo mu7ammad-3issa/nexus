@@ -8,14 +8,14 @@ part of 'api_error_model.dart';
 
 ApiErrorModel _$ApiErrorModelFromJson(Map<String, dynamic> json) =>
     ApiErrorModel(
-      statusCode: (json['statusCode'] as num?)?.toInt(),
-      details: json['details'] as String?,
-      message: json['responseBody'] as String?,
+      code: (json['code'] as num?)?.toInt(),
+      errors: json['errors'],
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$ApiErrorModelToJson(ApiErrorModel instance) =>
     <String, dynamic>{
-      'statusCode': instance.statusCode,
-      'details': instance.details,
-      'responseBody': instance.message,
+      'message': instance.message,
+      'code': instance.code,
+      'errors': instance.errors,
     };

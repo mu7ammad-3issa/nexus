@@ -21,7 +21,7 @@ mixin _$LoginState<T> {
     required TResult Function() initial,
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
+    required TResult Function(String errorMessage) loginError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$LoginState<T> {
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult? Function(String errorMessage)? loginError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$LoginState<T> {
     TResult Function()? initial,
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult Function(String errorMessage)? loginError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
+    required TResult Function(String errorMessage) loginError,
   }) {
     return initial();
   }
@@ -144,7 +144,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult? Function(String errorMessage)? loginError,
   }) {
     return initial?.call();
   }
@@ -155,7 +155,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult Function(String errorMessage)? loginError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -250,7 +250,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     required TResult Function() initial,
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
+    required TResult Function(String errorMessage) loginError,
   }) {
     return loginLoading();
   }
@@ -261,7 +261,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult? Function(String errorMessage)? loginError,
   }) {
     return loginLoading?.call();
   }
@@ -272,7 +272,7 @@ class _$LoginLoadingImpl<T> implements LoginLoading<T> {
     TResult Function()? initial,
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult Function(String errorMessage)? loginError,
     required TResult orElse(),
   }) {
     if (loginLoading != null) {
@@ -396,7 +396,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     required TResult Function() initial,
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
+    required TResult Function(String errorMessage) loginError,
   }) {
     return loginSuccess(data);
   }
@@ -407,7 +407,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult? Function(String errorMessage)? loginError,
   }) {
     return loginSuccess?.call(data);
   }
@@ -418,7 +418,7 @@ class _$LoginSuccessImpl<T> implements LoginSuccess<T> {
     TResult Function()? initial,
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult Function(String errorMessage)? loginError,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
@@ -483,7 +483,7 @@ abstract class _$$LoginErrorImplCopyWith<T, $Res> {
           _$LoginErrorImpl<T> value, $Res Function(_$LoginErrorImpl<T>) then) =
       __$$LoginErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({ApiErrorModel apiErrorModel});
+  $Res call({String errorMessage});
 }
 
 /// @nodoc
@@ -499,13 +499,13 @@ class __$$LoginErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiErrorModel = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$LoginErrorImpl<T>(
-      null == apiErrorModel
-          ? _value.apiErrorModel
-          : apiErrorModel // ignore: cast_nullable_to_non_nullable
-              as ApiErrorModel,
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -513,14 +513,14 @@ class __$$LoginErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$LoginErrorImpl<T> implements LoginError<T> {
-  const _$LoginErrorImpl(this.apiErrorModel);
+  const _$LoginErrorImpl(this.errorMessage);
 
   @override
-  final ApiErrorModel apiErrorModel;
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'LoginState<$T>.loginError(apiErrorModel: $apiErrorModel)';
+    return 'LoginState<$T>.loginError(errorMessage: $errorMessage)';
   }
 
   @override
@@ -528,12 +528,12 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginErrorImpl<T> &&
-            (identical(other.apiErrorModel, apiErrorModel) ||
-                other.apiErrorModel == apiErrorModel));
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, apiErrorModel);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -549,9 +549,9 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     required TResult Function() initial,
     required TResult Function() loginLoading,
     required TResult Function(T data) loginSuccess,
-    required TResult Function(ApiErrorModel apiErrorModel) loginError,
+    required TResult Function(String errorMessage) loginError,
   }) {
-    return loginError(apiErrorModel);
+    return loginError(errorMessage);
   }
 
   @override
@@ -560,9 +560,9 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult? Function()? initial,
     TResult? Function()? loginLoading,
     TResult? Function(T data)? loginSuccess,
-    TResult? Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult? Function(String errorMessage)? loginError,
   }) {
-    return loginError?.call(apiErrorModel);
+    return loginError?.call(errorMessage);
   }
 
   @override
@@ -571,11 +571,11 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
     TResult Function()? initial,
     TResult Function()? loginLoading,
     TResult Function(T data)? loginSuccess,
-    TResult Function(ApiErrorModel apiErrorModel)? loginError,
+    TResult Function(String errorMessage)? loginError,
     required TResult orElse(),
   }) {
     if (loginError != null) {
-      return loginError(apiErrorModel);
+      return loginError(errorMessage);
     }
     return orElse();
   }
@@ -619,10 +619,9 @@ class _$LoginErrorImpl<T> implements LoginError<T> {
 }
 
 abstract class LoginError<T> implements LoginState<T> {
-  const factory LoginError(final ApiErrorModel apiErrorModel) =
-      _$LoginErrorImpl<T>;
+  const factory LoginError(final String errorMessage) = _$LoginErrorImpl<T>;
 
-  ApiErrorModel get apiErrorModel;
+  String get errorMessage;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

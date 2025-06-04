@@ -4,7 +4,7 @@ import 'package:nexus/core/networking/api_service.dart';
 import 'package:nexus/core/networking/dio_factory.dart';
 
 import '../../features/auth/login/data/repos/login_repo.dart';
-import '../../features/auth/login/logic/cubit/login_cubit.dart';
+import '../../features/auth/login/logic/login_cubit.dart';
 
 final getIt = GetIt.instance;
 Future<void> setupGetIt() async {

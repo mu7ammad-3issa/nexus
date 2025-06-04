@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/routing/routes.dart';
 import 'package:nexus/core/widgets/have_account_question_text.dart';
-import 'package:nexus/core/widgets/or_divider.dart';
-import 'package:nexus/core/widgets/social_media_buttons.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
-import 'package:nexus/features/auth/login/ui/widgets/login_form_with_button.dart';
 import 'package:nexus/features/auth/login/ui/widgets/login_header.dart';
+
+import '../../../../core/widgets/app_text_button.dart';
+import '../logic/login_cubit.dart';
+import 'widgets/login_bloc_listener.dart';
+import 'widgets/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -21,13 +23,14 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const LoginHeader(),
-              verticalSpace(24.h),
-              const LoginFormWithButton(),
-              verticalSpace(24.h),
-              const OrDivider(),
-              verticalSpace(24.h),
-              const SocialMediaButtons(),
-              verticalSpace(14.h),
+              verticalSpace(24),
+              const LoginForm(),
+              verticalSpace(24),
+              AppTextButton(
+                onPressed: () => validateThenLogin(context),
+                text: 'Sign in',
+              ),
+              verticalSpace(14),
               HaveAccountQuestionText(
                 questionText: 'Don’t have an account? ',
                 clickableText: 'Sign Up',
@@ -35,11 +38,18 @@ class LoginScreen extends StatelessWidget {
                   context.pushNamed(Routes.signUpScreen);
                 },
               ),
-              verticalSpace(54.h),
+              verticalSpace(54),
+              const LoginBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validateThenLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates();
+    }
   }
 }

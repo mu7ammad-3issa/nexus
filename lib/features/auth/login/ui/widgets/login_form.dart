@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nexus/core/constants/assets.dart';
@@ -10,17 +11,11 @@ import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/helpers/helper_methods/validators.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/features/auth/login/logic/login_cubit.dart';
 
 class LoginForm extends StatefulWidget {
-  final GlobalKey<FormState> formKey;
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
-
   const LoginForm({
     super.key,
-    required this.formKey,
-    required this.emailController,
-    required this.passwordController,
   });
 
   @override
@@ -31,7 +26,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: widget.formKey,
+      key: context.read<LoginCubit>().formKey,
       child: Padding(
         padding: context.horizontal(24.w),
         child: Column(
@@ -42,12 +37,11 @@ class _LoginFormState extends State<LoginForm> {
               icon: SvgPicture.asset(
                 Assets.iconsEmail,
               ),
-              controller: widget.emailController,
+              controller: context.read<LoginCubit>().emailController,
               isPassword: false,
               validator: Validators.validateEmail,
-              onSaved: (value) {},
             ),
-            verticalSpace(18.h),
+            verticalSpace(18),
             AuthTextFormField(
               label: 'Password',
               hint: 'At least 8 characters',
@@ -55,8 +49,8 @@ class _LoginFormState extends State<LoginForm> {
               icon: SvgPicture.asset(
                 Assets.iconsPassword,
               ),
-              validator: Validators.validatePassword,
-              onSaved: (value) {},
+              validator: Validators.validateLoginPassword,
+              controller: context.read<LoginCubit>().passwordController,
             ),
             verticalSpace(8),
             Align(
