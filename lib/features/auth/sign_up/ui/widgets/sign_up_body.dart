@@ -5,8 +5,8 @@ import 'package:nexus/core/widgets/have_account_question_text.dart';
 import 'package:nexus/core/widgets/or_divider.dart';
 import 'package:nexus/core/widgets/social_media_buttons.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
-import 'package:nexus/features/auth/sign_up/presentation/widgets/sign_up_form_with_button.dart';
-import 'package:nexus/features/auth/sign_up/presentation/widgets/sign_up_header.dart';
+import 'package:nexus/features/auth/sign_up/ui/widgets/sign_up_form_with_button.dart';
+import 'package:nexus/features/auth/sign_up/ui/widgets/sign_up_header.dart';
 
 import '../../../../../core/routing/routes.dart';
 
