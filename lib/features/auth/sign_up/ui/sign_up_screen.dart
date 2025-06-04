@@ -11,6 +11,7 @@ class SignUpScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
+            // Background image
             Image.asset(
               Assets.imagesSignUpWavyLine,
               fit: BoxFit.fitWidth,
