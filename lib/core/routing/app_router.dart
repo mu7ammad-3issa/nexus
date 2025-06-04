@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nexus/core/di/dependency_injectiond.dart';
+import 'package:nexus/features/layout/app_layout.dart';
 import '../../features/auth/forget_password/presentation/forget_password_screen.dart';
-import '../../features/auth/login/presentation/login_screen.dart';
+import '../../features/auth/login/logic/login_cubit.dart';
+import '../../features/auth/login/ui/login_screen.dart';
 import '../../features/auth/otp/presentation/otp_screen.dart';
 import '../../features/auth/reset_password/presentation/reset_password_screen.dart';
 import '../../features/auth/sign_up/presentation/sign_up_screen.dart';
@@ -26,18 +30,27 @@ class AppRouter {
     final arguments = settings.arguments;
 
     switch (settings.name) {
-      case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
       case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case Routes.forgetPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
-      case Routes.resetPasswordScreen:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
       case Routes.otpScreen:
         return MaterialPageRoute(builder: (_) => const OtpScreen());
+      case Routes.resetPasswordScreen:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+      case Routes.appLayoutScreen:
+        return MaterialPageRoute(
+          builder: (_) => const AppLayout(),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.subscriptionScreen:
         return MaterialPageRoute(builder: (_) => const SubscriptionScreen());
       case Routes.profileScreen:

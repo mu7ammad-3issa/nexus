@@ -12,7 +12,7 @@ class AuthTextFormField extends StatefulWidget {
     required this.icon,
     required this.isPassword,
     required this.validator,
-    required this.onSaved,
+    this.onSaved,
     this.textCapitalization = TextCapitalization.none,
     this.keyboardType,
     this.controller,
@@ -28,7 +28,7 @@ class AuthTextFormField extends StatefulWidget {
   final bool isPassword;
   final TextInputType? keyboardType;
   final TextCapitalization textCapitalization;
-  final void Function(String?) onSaved;
+  final void Function(String?)? onSaved;
   final String? Function(String?) validator;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
@@ -79,6 +79,7 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
             errorStyle: AppStyles.aldrichRegular14Violet50.copyWith(
               color: Colors.red,
             ),
+            errorMaxLines: 2,
             prefixIcon: Padding(
               padding:
                   context.only(left: 16.w, top: 16.h, bottom: 16.h, right: 8.w),

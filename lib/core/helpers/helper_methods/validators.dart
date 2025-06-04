@@ -39,12 +39,18 @@ class Validators {
     return null;
   }
 
+  static String? validateLoginPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required';
+    }
+    return null;
+  }
+
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Password is required';
     } else if (!AppRegex.isPasswordValid(value)) {
-      return 'Password must contain at least 8 characters, '
-          'including\n an uppercase letter, number, and special character';
+      return 'Password must contain at least 8 characters, including\n an uppercase letter, number, and special character';
     }
     return null;
   }
