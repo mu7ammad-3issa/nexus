@@ -79,7 +79,6 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
             errorStyle: AppStyles.aldrichRegular14Violet50.copyWith(
               color: Colors.red,
             ),
-            errorMaxLines: 2,
             prefixIcon: Padding(
               padding:
                   context.only(left: 16.w, top: 16.h, bottom: 16.h, right: 8.w),

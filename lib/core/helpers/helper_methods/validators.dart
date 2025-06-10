@@ -48,10 +48,38 @@ class Validators {
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Password is required';
-    } else if (!AppRegex.isPasswordValid(value)) {
-      return 'Password must contain at least 8 characters, including\n an uppercase letter, number, and special character';
+      return 'Psst! You need to create a password.';
+    } // A list to hold all the missing requirements.
+    final List<String> missingRequirements = [];
+
+    // Check for minimum length of 8 characters.
+    if (value.length < 8) {
+      missingRequirements.add('at least 8 characters');
     }
+
+    // Check for an uppercase letter.
+    if (!value.contains(RegExp(r'[A-Z]'))) {
+      missingRequirements.add('an uppercase letter (A-Z)');
+    }
+
+    // Check for a number.
+    if (!value.contains(RegExp(r'[0-9]'))) {
+      missingRequirements.add('a number (0-9)');
+    }
+
+    // Check for a special character.
+    if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+      missingRequirements.add('a special character (@, \$, !, etc.)');
+    }
+
+    // If there are any missing requirements, build and return the error message.
+    if (missingRequirements.isNotEmpty) {
+      // Join the missing parts into a readable list.
+      final String missingText = missingRequirements.join(',\n- ');
+      return 'Your password is a bit shy! It\'s missing:\n- $missingText';
+    }
+
+    // If all checks pass, the password is valid.
     return null;
   }
 

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/di/dependency_injectiond.dart';
+import 'package:nexus/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:nexus/features/layout/app_layout.dart';
 import '../../features/auth/forget_password/presentation/forget_password_screen.dart';
 import '../../features/auth/login/logic/login_cubit.dart';
 import '../../features/auth/login/ui/login_screen.dart';
 import '../../features/auth/otp/presentation/otp_screen.dart';
 import '../../features/auth/reset_password/presentation/reset_password_screen.dart';
-import '../../features/auth/sign_up/presentation/sign_up_screen.dart';
+import '../../features/auth/sign_up/ui/sign_up_screen.dart';
 import '../../features/burn_scan/burn_scan_screen.dart';
 import '../../features/chatbot/screens/chat_screen.dart';
 import '../../features/chatbot/screens/start_chat_screen.dart';
@@ -38,7 +39,13 @@ class AppRouter {
           ),
         );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: const SignUpScreen(),
+          ),
+        );
+
       case Routes.forgetPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.otpScreen:

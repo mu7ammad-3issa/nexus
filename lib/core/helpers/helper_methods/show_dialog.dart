@@ -10,6 +10,8 @@ import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 
+import '../../animations/custom_loading_indicator.dart';
+
 void passwordResetSuccessDialog(BuildContext context) {
   showDialog(
     context: context,
@@ -46,6 +48,54 @@ void passwordResetSuccessDialog(BuildContext context) {
             },
             child: Text(
               'OK',
+              style: AppStyles.aldrichRegular16Violet100.copyWith(
+                color: ColorsManager.appColor,
+              ),
+            ),
+          ),
+          verticalSpace(24),
+        ],
+      ),
+    ),
+  );
+}
+
+void signUpSuccessDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => Dialog(
+      backgroundColor: ColorsManager.scaffoldBackGroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.r),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          verticalSpace(40),
+          SvgPicture.asset(
+            Assets.imagesDialogLogo,
+          ),
+          verticalSpace(51),
+          Text(
+            'Congratulations, you have signed up successfully!',
+            style: AppStyles.aldrichRegular14Violet50.copyWith(
+              color: ColorsManager.lightGray,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          verticalSpace(16),
+          const Divider(
+            color: ColorsManager.lightGrey300,
+          ),
+          TextButton(
+            onPressed: () {
+              context.pushReplacementNamed(
+                Routes.loginScreen,
+              );
+            },
+            child: Text(
+              'Continue',
               style: AppStyles.aldrichRegular16Violet100.copyWith(
                 color: ColorsManager.appColor,
               ),
@@ -182,6 +232,48 @@ void confirmLogoutDialog(BuildContext context) {
             verticalSpace(46.h),
           ],
         ),
+      ),
+    ),
+  );
+}
+
+void setupErrorState(BuildContext context, dynamic errorMessage) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      backgroundColor: ColorsManager.scaffoldBackGroundColor,
+      icon: const Icon(
+        Icons.error,
+        color: Colors.red,
+        size: 32,
+      ),
+      content: Text(
+        errorMessage ?? 'An error occurred',
+        style: AppStyles.aldrichRegular14Violet50,
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: Text(
+            'Got it',
+            style: AppStyles.aldrichRegular16Violet100.copyWith(
+              color: ColorsManager.appColor,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+void showCustomLoadingIndicator(BuildContext context, {String? text}) {
+  showDialog(
+    context: context,
+    builder: (context) => Center(
+      child: CustomLoadingIndicator(
+        text: text,
       ),
     ),
   );
