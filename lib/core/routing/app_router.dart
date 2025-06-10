@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/di/dependency_injectiond.dart';
+import 'package:nexus/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:nexus/features/layout/app_layout.dart';
 import '../../features/auth/forget_password/presentation/forget_password_screen.dart';
 import '../../features/auth/login/logic/login_cubit.dart';
@@ -38,7 +39,13 @@ class AppRouter {
           ),
         );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: const SignUpScreen(),
+          ),
+        );
+
       case Routes.forgetPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.otpScreen:

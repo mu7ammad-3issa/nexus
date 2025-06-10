@@ -5,6 +5,8 @@ import 'package:nexus/core/networking/dio_factory.dart';
 
 import '../../features/auth/login/data/repos/login_repo.dart';
 import '../../features/auth/login/logic/login_cubit.dart';
+import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
+import '../../features/auth/sign_up/logic/sign_up_cubit.dart';
 
 final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
@@ -15,4 +17,8 @@ Future<void> setupGetIt() async {
   // login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
+
+  // sign up
+  getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
+  getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
 }
