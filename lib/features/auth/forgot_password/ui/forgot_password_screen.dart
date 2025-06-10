@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nexus/core/constants/assets.dart';
-import 'package:nexus/features/auth/forget_password/presentation/widgets/forget_password_body.dart';
+import 'package:nexus/features/auth/forgot_password/ui/widgets/forgot_password_body.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({super.key});
+class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ForgetPasswordScreen extends StatelessWidget {
             Image.asset(
               Assets.imagesForgetPasswordWavyLine,
             ),
-            const ForgetPasswordBody(),
+            const ForgotPasswordBody(),
           ],
         ),
       ),

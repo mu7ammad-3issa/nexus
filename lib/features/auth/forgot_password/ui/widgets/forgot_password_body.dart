@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/widgets/custom_header.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
-import 'package:nexus/features/auth/forget_password/presentation/widgets/forget_password_form_with_button.dart';
+import 'package:nexus/features/auth/forgot_password/ui/widgets/forgot_password_form_with_button.dart';
 
 @override
-class ForgetPasswordBody extends StatelessWidget {
-  const ForgetPasswordBody({
+class ForgotPasswordBody extends StatelessWidget {
+  const ForgotPasswordBody({
     super.key,
   });
 
@@ -17,10 +16,10 @@ class ForgetPasswordBody extends StatelessWidget {
         children: [
           verticalSpace(33),
           const CustomHeader(
-            text: 'Forget Password',
+            text: 'Forgot Password',
           ),
-          verticalSpace(210.h),
-          const ForgetPasswordFormWithButton(),
+          verticalSpace(210),
+          const ForgotPasswordFormWithButton(),
         ],
       ),
     );
