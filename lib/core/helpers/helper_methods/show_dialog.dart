@@ -12,6 +12,51 @@ import 'package:nexus/core/theming/colors_manager.dart';
 
 import '../../animations/custom_loading_indicator.dart';
 
+void successDialog(BuildContext context,
+    {required String text, required void Function() onPressed}) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => Dialog(
+      backgroundColor: ColorsManager.scaffoldBackGroundColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.r),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          verticalSpace(40),
+          SvgPicture.asset(
+            Assets.imagesDialogLogo,
+          ),
+          verticalSpace(51),
+          Text(
+            text,
+            style: AppStyles.aldrichRegular14Violet50.copyWith(
+              color: ColorsManager.lightGray,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          verticalSpace(16),
+          const Divider(
+            color: ColorsManager.lightGrey300,
+          ),
+          TextButton(
+            onPressed: onPressed,
+            child: Text(
+              'Continue',
+              style: AppStyles.aldrichRegular16Violet100.copyWith(
+                color: ColorsManager.appColor,
+              ),
+            ),
+          ),
+          verticalSpace(24),
+        ],
+      ),
+    ),
+  );
+}
+
 void passwordResetSuccessDialog(BuildContext context) {
   showDialog(
     context: context,
