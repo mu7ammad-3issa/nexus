@@ -11,17 +11,18 @@ import 'package:nexus/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:nexus/features/auth/sign_up/ui/widgets/terms_and_condition.dart';
 
 import '../../../../../core/theming/app_styles.dart';
+import '../../../../../core/widgets/app_text_button.dart';
 
-class SignUpForm extends StatefulWidget {
-  const SignUpForm({
+class SignUpFormWithButton extends StatefulWidget {
+  const SignUpFormWithButton({
     super.key,
   });
 
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
+  State<SignUpFormWithButton> createState() => _SignUpFormWithButtonState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class _SignUpFormWithButtonState extends State<SignUpFormWithButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -97,9 +98,28 @@ class _SignUpFormState extends State<SignUpForm> {
                   ),
                 ),
               ),
+            verticalSpace(16),
+            AppTextButton(
+              onPressed: () {
+                validateThenSignUp(context);
+              },
+              text: 'Sign Up',
+            ),
           ],
         ),
       ),
     );
+  }
+
+  void validateThenSignUp(BuildContext context) {
+    setState(() {
+      context.read<SignUpCubit>().isTermsValid =
+          context.read<SignUpCubit>().isTermsChecked;
+    });
+
+    if (context.read<SignUpCubit>().formkey.currentState!.validate() &&
+        context.read<SignUpCubit>().isTermsValid) {
+      context.read<SignUpCubit>().emitSignUpStates();
+    }
   }
 }
