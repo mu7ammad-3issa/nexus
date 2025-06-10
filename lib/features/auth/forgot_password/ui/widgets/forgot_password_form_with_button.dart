@@ -8,15 +8,15 @@ import 'package:nexus/core/widgets/auth_text_form_field.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/helpers/helper_methods/validators.dart';
 
-class ForgetPasswordFormWithButton extends StatefulWidget {
-  const ForgetPasswordFormWithButton({super.key});
+class ForgotPasswordFormWithButton extends StatefulWidget {
+  const ForgotPasswordFormWithButton({super.key});
 
   @override
-  State<ForgetPasswordFormWithButton> createState() =>
+  State<ForgotPasswordFormWithButton> createState() =>
       _ForgetPasswordFormState();
 }
 
-class _ForgetPasswordFormState extends State<ForgetPasswordFormWithButton> {
+class _ForgetPasswordFormState extends State<ForgotPasswordFormWithButton> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
 
