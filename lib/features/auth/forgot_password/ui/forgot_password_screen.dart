@@ -11,6 +11,7 @@ class ForgotPasswordScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
+            // Background image
             Image.asset(
               Assets.imagesForgetPasswordWavyLine,
             ),

@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nexus/core/networking/api_service.dart';
 import 'package:nexus/core/networking/dio_factory.dart';
+import 'package:nexus/features/auth/forgot_password/data/repos/forgot_password_repo.dart';
 
+import '../../features/auth/forgot_password/logic/forgot_password_cubit.dart';
 import '../../features/auth/login/data/repos/login_repo.dart';
 import '../../features/auth/login/logic/login_cubit.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
@@ -21,4 +23,10 @@ Future<void> setupGetIt() async {
   // sign up
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
+
+  // forgot password
+  getIt.registerLazySingleton<ForgotPasswordRepo>(
+      () => ForgotPasswordRepo(getIt()));
+  getIt
+      .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt()));
 }
