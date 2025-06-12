@@ -1,37 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
+import 'package:nexus/core/helpers/helper_methods/validators.dart';
 import 'package:nexus/core/widgets/app_text_button.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/features/auth/otp/logic/verify_otp_cubit.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../data/models/verify_otp_request_body.dart';
+
 class OtpForm extends StatefulWidget {
-  const OtpForm({super.key});
+  final String email;
+  const OtpForm({super.key, required this.email});
 
   @override
   State<OtpForm> createState() => _PinputExampleState();
 }
 
 class _PinputExampleState extends State<OtpForm> {
-  late final TextEditingController pinController;
-  late final FocusNode focusNode;
-  late final GlobalKey<FormState> formKey;
-
-  @override
-  void initState() {
-    super.initState();
-    formKey = GlobalKey<FormState>();
-    pinController = TextEditingController();
-    focusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    pinController.dispose();
-    focusNode.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     const fillColor = Color.fromRGBO(243, 246, 249, 0);
@@ -51,7 +39,7 @@ class _PinputExampleState extends State<OtpForm> {
 
     /// Optionally you can use form to validate the Pinput
     return Form(
-      key: formKey,
+      key: context.read<VerifyOtpCubit>().formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -59,19 +47,21 @@ class _PinputExampleState extends State<OtpForm> {
             // Specify direction if desired
             textDirection: TextDirection.ltr,
             child: Pinput(
-              // You can pass your own SmsRetriever implementation based on any package
-              // in this example we are using the SmartAuth
               length: 6,
-              controller: pinController,
-              focusNode: focusNode,
+              controller: context.read<VerifyOtpCubit>().pinController,
+              focusNode: context.read<VerifyOtpCubit>().focusNode,
+              autofocus: true,
               defaultPinTheme: defaultPinTheme,
               separatorBuilder: (index) => const SizedBox(width: 8),
-              validator: (value) {
-                return value == '2222' ? null : 'Pin is incorrect';
-              },
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+              ],
+              validator: Validators.validateOtp,
               hapticFeedbackType: HapticFeedbackType.lightImpact,
               onCompleted: (pin) {
                 debugPrint('onCompleted: $pin');
+                validateThenSubmit(context);
               },
               onChanged: (value) {
                 debugPrint('onChanged: $value');
@@ -106,12 +96,23 @@ class _PinputExampleState extends State<OtpForm> {
           AppTextButton(
             text: 'Verify',
             onPressed: () {
-              focusNode.unfocus();
-              formKey.currentState!.validate();
+              validateThenSubmit(context);
             },
           ),
         ],
       ),
     );
+  }
+
+  void validateThenSubmit(BuildContext context) {
+    context.read<VerifyOtpCubit>().focusNode.unfocus();
+    if (context.read<VerifyOtpCubit>().formKey.currentState!.validate()) {
+      context.read<VerifyOtpCubit>().emitVerifyOtpStates(
+            VerifyOtpRequestBody(
+              email: widget.email,
+              otp: context.read<VerifyOtpCubit>().pinController.text,
+            ),
+          );
+    }
   }
 }

@@ -3,6 +3,7 @@ class ApiConstants {
   static const String loginEndpoint = 'Auth/signin';
   static const String signupEndpoint = 'Auth/signup';
   static const String forgotPasswordEndpoint = 'Auth/forgot-password';
+  static const String verifyOtpEndpoint = 'Auth/verify-otp';
 }
 
 class ApiErrors {

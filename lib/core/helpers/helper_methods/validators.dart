@@ -91,4 +91,13 @@ class Validators {
     }
     return null;
   }
+
+  static String? validateOtp(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter the OTP';
+    } else if (value.length != 6) {
+      return 'The OTP must be 6 digits long';
+    }
+    return null;
+  }
 }

@@ -2,42 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/routing/routes.dart';
-import 'package:nexus/features/auth/forgot_password/logic/forgot_password_cubit.dart';
+import 'package:nexus/features/auth/otp/logic/verify_otp_cubit.dart';
+import 'package:nexus/features/auth/otp/logic/verify_otp_state.dart';
 
 import '../../../../../core/helpers/helper_methods/show_dialog.dart';
-import '../../logic/forgot_password_state.dart';
 
-class ForgotPasswordBlocListener extends StatelessWidget {
-  const ForgotPasswordBlocListener({super.key});
+class OtpBlocListener extends StatelessWidget {
+  const OtpBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
+    return BlocListener<VerifyOtpCubit, VerifyOtpState>(
       listenWhen: (previous, current) {
-        return current is ForgotPasswordLoading ||
-            current is ForgotPasswordSuccess ||
-            current is ForgotPasswordError;
+        return current is verifyOtpLoading ||
+            current is verifyOtpSuccess ||
+            current is verifyOtpError;
       },
       listener: (context, state) {
         state.whenOrNull(
-          forgotPasswordLoading: () {
+          verifyOtpLoading: () {
             showCustomLoadingIndicator(context);
           },
-          forgotPasswordSuccess: (data) {
+          verifyOtpSuccess: (data) {
             context.pop();
             successDialog(
               context,
               text: data,
               onPressed: () {
-                context.pushReplacementNamed(
-                  Routes.otpScreen,
-                  arguments:
-                      context.read<ForgotPasswordCubit>().emailController.text,
+                context.pushNamedAndRemoveUntil(
+                  Routes.resetPasswordScreen,
+                  predicate: (route) =>
+                      route.settings.name == Routes.loginScreen,
                 );
               },
             );
           },
-          forgotPasswordError: (errorMessage) {
+          verifyOtpError: (errorMessage) {
             context.pop();
             setupErrorState(context, errorMessage);
           },
