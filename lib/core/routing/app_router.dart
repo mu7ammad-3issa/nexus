@@ -9,7 +9,7 @@ import '../../features/auth/forgot_password/ui/forgot_password_screen.dart';
 import '../../features/auth/login/logic/login_cubit.dart';
 import '../../features/auth/login/ui/login_screen.dart';
 import '../../features/auth/otp/ui/otp_screen.dart';
-import '../../features/auth/reset_password/presentation/reset_password_screen.dart';
+import '../../features/auth/reset_password/ui/reset_password_screen.dart';
 import '../../features/auth/sign_up/ui/sign_up_screen.dart';
 import '../../features/burn_scan/burn_scan_screen.dart';
 import '../../features/chatbot/screens/chat_screen.dart';
