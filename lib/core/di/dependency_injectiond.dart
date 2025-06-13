@@ -31,8 +31,8 @@ Future<void> setupGetIt() async {
   // forgot password
   getIt.registerLazySingleton<ForgotPasswordRepo>(
       () => ForgotPasswordRepo(getIt()));
-  getIt
-      .registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(getIt()));
+  getIt.registerLazySingleton<ForgotPasswordCubit>(
+      () => ForgotPasswordCubit(getIt()));
 
   // verify otp
   getIt.registerLazySingleton<VerifyOtpRepo>(() => VerifyOtpRepo(getIt()));
