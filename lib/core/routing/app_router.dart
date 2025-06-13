@@ -75,6 +75,10 @@ class AppRouter {
             create: (context) => getIt<ResetPasswordCubit>(),
             child: ResetPasswordScreen(otp: otp),
           ),
+
+        return MaterialPageRoute(
+          builder: (_) => const ResetPasswordScreen(),
+
           settings: settings,
         );
       case Routes.appLayoutScreen:
