@@ -2,43 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/helpers/base_extensions/context/navigation.dart';
 import 'package:nexus/core/routing/routes.dart';
-import 'package:nexus/features/auth/otp/logic/verify_otp_cubit.dart';
-import 'package:nexus/features/auth/otp/logic/verify_otp_state.dart';
+import 'package:nexus/features/auth/reset_password/logic/reset_password_cubit.dart';
+import 'package:nexus/features/auth/reset_password/logic/reset_password_state.dart';
 
 import '../../../../../core/helpers/helper_methods/show_dialog.dart';
 
-class OtpBlocListener extends StatelessWidget {
-  const OtpBlocListener({super.key});
+class ResetPasswordBlocListener extends StatelessWidget {
+  const ResetPasswordBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<VerifyOtpCubit, VerifyOtpState>(
-      listenWhen: (previous, current) {
-        return current is verifyOtpLoading ||
-            current is verifyOtpSuccess ||
-            current is verifyOtpError;
-      },
+    return BlocListener<ResetPasswordCubit, ResetPasswordState>(
+      listenWhen: (previous, current) =>
+          current is ResetPasswordLoading ||
+          current is ResetPasswordSuccess ||
+          current is ResetPasswordError,
       listener: (context, state) {
         state.whenOrNull(
-          verifyOtpLoading: () {
+          resetPasswordLoading: () {
             showCustomLoadingIndicator(context);
           },
-          verifyOtpSuccess: (data) {
+          resetPasswordSuccess: (data) {
             context.pop();
             successDialog(
               context,
               text: data,
+              buttonText: 'Ok',
               onPressed: () {
                 context.pushNamedAndRemoveUntil(
-                  Routes.resetPasswordScreen,
+                  Routes.loginScreen,
                   predicate: (route) =>
                       route.settings.name == Routes.loginScreen,
-                  arguments: context.read<VerifyOtpCubit>().pinController.text,
                 );
               },
             );
           },
-          verifyOtpError: (errorMessage) {
+          resetPasswordError: (errorMessage) {
             context.pop();
             setupErrorState(context, errorMessage);
           },

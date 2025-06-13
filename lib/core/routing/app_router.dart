@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/di/dependency_injectiond.dart';
 import 'package:nexus/features/auth/forgot_password/logic/forgot_password_cubit.dart';
 import 'package:nexus/features/auth/otp/logic/verify_otp_cubit.dart';
+import 'package:nexus/features/auth/reset_password/logic/reset_password_cubit.dart';
 import 'package:nexus/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:nexus/features/layout/app_layout.dart';
 import '../../features/auth/forgot_password/ui/forgot_password_screen.dart';
@@ -39,6 +40,7 @@ class AppRouter {
             create: (context) => getIt<LoginCubit>(),
             child: const LoginScreen(),
           ),
+          settings: settings,
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(
@@ -46,6 +48,7 @@ class AppRouter {
             create: (context) => getIt<SignUpCubit>(),
             child: const SignUpScreen(),
           ),
+          settings: settings,
         );
 
       case Routes.forgotPasswordScreen:
@@ -54,6 +57,7 @@ class AppRouter {
             create: (context) => getIt<ForgotPasswordCubit>(),
             child: const ForgotPasswordScreen(),
           ),
+          settings: settings,
         );
       case Routes.otpScreen:
         final email = arguments as String;
@@ -62,42 +66,92 @@ class AppRouter {
             create: (context) => getIt<VerifyOtpCubit>(),
             child: OtpScreen(email: email),
           ),
+          settings: settings,
         );
       case Routes.resetPasswordScreen:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+        final otp = arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ResetPasswordCubit>(),
+            child: ResetPasswordScreen(otp: otp),
+          ),
+          settings: settings,
+        );
       case Routes.appLayoutScreen:
         return MaterialPageRoute(
           builder: (_) => const AppLayout(),
+          settings: settings,
         );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
+          settings: settings,
+        );
       case Routes.subscriptionScreen:
-        return MaterialPageRoute(builder: (_) => const SubscriptionScreen());
+        return MaterialPageRoute(
+          builder: (_) => const SubscriptionScreen(),
+          settings: settings,
+        );
       case Routes.profileScreen:
-        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        return MaterialPageRoute(
+          builder: (_) => const ProfileScreen(),
+          settings: settings,
+        );
       case Routes.startChatScreen:
-        return MaterialPageRoute(builder: (_) => const StartChatScreen());
+        return MaterialPageRoute(
+          builder: (_) => const StartChatScreen(),
+          settings: settings,
+        );
       case Routes.chatScreen:
-        return MaterialPageRoute(builder: (_) => const ChatScreen());
+        return MaterialPageRoute(
+          builder: (_) => const ChatScreen(),
+          settings: settings,
+        );
       case Routes.settingsScreen:
-        return MaterialPageRoute(builder: (_) => const SettingsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const SettingsScreen(),
+          settings: settings,
+        );
       case Routes.aboutUsScreen:
-        return MaterialPageRoute(builder: (_) => const AboutUsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const AboutUsScreen(),
+          settings: settings,
+        );
       case Routes.contactUsScreen:
-        return MaterialPageRoute(builder: (_) => const ContactUsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const ContactUsScreen(),
+          settings: settings,
+        );
       case Routes.burnScanScreen:
-        return MaterialPageRoute(builder: (_) => const BurnScanScreen());
+        return MaterialPageRoute(
+          builder: (_) => const BurnScanScreen(),
+          settings: settings,
+        );
       case Routes.notificationsScreen:
-        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const NotificationsScreen(),
+          settings: settings,
+        );
       case Routes.editProfileScreen:
-        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+        return MaterialPageRoute(
+          builder: (_) => const EditProfileScreen(),
+          settings: settings,
+        );
       case Routes.privacyScreen:
-        return MaterialPageRoute(builder: (_) => const PrivacyScreen());
+        return MaterialPageRoute(
+          builder: (_) => const PrivacyScreen(),
+          settings: settings,
+        );
       case Routes.leaderboardScreen:
-        return MaterialPageRoute(builder: (_) => const LeaderboardScreen());
+        return MaterialPageRoute(
+          builder: (_) => const LeaderboardScreen(),
+          settings: settings,
+        );
       case Routes.notificationsSettingsScreen:
         return MaterialPageRoute(
-            builder: (_) => const NotificationsSettingsScreen());
+          builder: (_) => const NotificationsSettingsScreen(),
+          settings: settings,
+        );
 
       default:
         return null;
