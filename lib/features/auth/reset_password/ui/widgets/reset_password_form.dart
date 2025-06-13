@@ -61,7 +61,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 value,
                 context.read<ResetPasswordCubit>().newPasswordController.text,
               ),
-              onSaved: (value) {},
             ),
           ),
         ],
