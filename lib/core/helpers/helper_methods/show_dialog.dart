@@ -13,7 +13,9 @@ import 'package:nexus/core/theming/colors_manager.dart';
 import '../../animations/custom_loading_indicator.dart';
 
 void successDialog(BuildContext context,
-    {required String text, required void Function() onPressed}) {
+    {required String text,
+    required void Function() onPressed,
+    String? buttonText}) {
   showDialog(
     context: context,
     barrierDismissible: false,
@@ -44,7 +46,7 @@ void successDialog(BuildContext context,
           TextButton(
             onPressed: onPressed,
             child: Text(
-              'Continue',
+              buttonText ?? 'Continue',
               style: AppStyles.aldrichRegular16Violet100.copyWith(
                 color: ColorsManager.appColor,
               ),

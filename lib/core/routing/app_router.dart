@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/di/dependency_injectiond.dart';
 import 'package:nexus/features/auth/forgot_password/logic/forgot_password_cubit.dart';
 import 'package:nexus/features/auth/otp/logic/verify_otp_cubit.dart';
+import 'package:nexus/features/auth/reset_password/logic/reset_password_cubit.dart';
 import 'package:nexus/features/auth/sign_up/logic/sign_up_cubit.dart';
 import 'package:nexus/features/layout/app_layout.dart';
 import '../../features/auth/forgot_password/ui/forgot_password_screen.dart';
@@ -68,8 +69,16 @@ class AppRouter {
           settings: settings,
         );
       case Routes.resetPasswordScreen:
+        final otp = arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ResetPasswordCubit>(),
+            child: ResetPasswordScreen(otp: otp),
+          ),
+
         return MaterialPageRoute(
           builder: (_) => const ResetPasswordScreen(),
+
           settings: settings,
         );
       case Routes.appLayoutScreen:
