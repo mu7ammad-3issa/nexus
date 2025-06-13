@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+import 'package:nexus/features/auth/forgot_password/logic/forgot_password_cubit.dart';
 
 class ResendOtpText extends StatelessWidget {
   const ResendOtpText({super.key});
@@ -22,7 +24,7 @@ class ResendOtpText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                //  resend logic
+                context.read<ForgotPasswordCubit>().emitForgotPasswordStates();
               },
           ),
         ],

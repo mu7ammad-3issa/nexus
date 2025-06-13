@@ -62,8 +62,15 @@ class AppRouter {
       case Routes.otpScreen:
         final email = arguments as String;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<VerifyOtpCubit>(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<VerifyOtpCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<ForgotPasswordCubit>(),
+              ),
+            ],
             child: OtpScreen(email: email),
           ),
           settings: settings,
