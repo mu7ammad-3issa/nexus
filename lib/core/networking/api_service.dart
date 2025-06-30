@@ -4,6 +4,7 @@ import 'package:nexus/features/auth/login/data/models/login_request_body.dart';
 import 'package:nexus/features/auth/login/data/models/login_response.dart';
 import 'package:nexus/features/auth/otp/data/models/verify_otp_request_body.dart';
 import 'package:nexus/features/auth/sign_up/data/models/sign_up_request_body.dart';
+import 'package:nexus/features/leaderboard/data/models/leaderboard_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../features/auth/reset_password/data/models/reset_password_request_body.dart';
@@ -35,4 +36,7 @@ abstract class ApiService {
   Future<dynamic> resetPassword(
     @Body() ResetPasswordRequestBody resetPasswordRequestBody,
   );
+
+  @GET(ApiConstants.leaderboardEndpoint)
+  Future<LeaderboardResponseModel> getLeaderboardUsersList();
 }
