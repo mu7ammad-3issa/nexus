@@ -17,6 +17,7 @@ class ColorsManager {
   static const Color coolGray = Color(0xFFCECFD0);
   static const Color inActiveSwitch = Color(0xFFC8C8C8);
   static const Color lightGrey300 = Color(0xFFE6E6E6);
+  static const Color lightGrayShimmer = Color(0xFFC2C2C2);
   static const Color deletionColor = Color(0xFFB30303);
   static const Color lightBlue = Color(0xFF96AAF3);
   static const Color green100 = Color(0xFFE4F9BD);

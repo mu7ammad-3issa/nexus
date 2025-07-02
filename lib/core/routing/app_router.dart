@@ -153,7 +153,8 @@ class AppRouter {
       case Routes.leaderboardScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<LeaderboardCubit>(),
+            create: (context) =>
+                getIt<LeaderboardCubit>()..getLeaderboardUsersList(),
             child: const LeaderboardScreen(),
           ),
           settings: settings,

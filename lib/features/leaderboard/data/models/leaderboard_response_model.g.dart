@@ -9,15 +9,17 @@ part of 'leaderboard_response_model.dart';
 LeaderboardResponseModel _$LeaderboardResponseModelFromJson(
         Map<String, dynamic> json) =>
     LeaderboardResponseModel(
-      users: (json['users'] as List<dynamic>)
-          .map((e) => LeaderboardUser.fromJson(e as Map<String, dynamic>))
+      usersList: (json['usersList'] as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : LeaderboardUser.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$LeaderboardResponseModelToJson(
         LeaderboardResponseModel instance) =>
     <String, dynamic>{
-      'users': instance.users,
+      'usersList': instance.usersList,
     };
 
 LeaderboardUser _$LeaderboardUserFromJson(Map<String, dynamic> json) =>

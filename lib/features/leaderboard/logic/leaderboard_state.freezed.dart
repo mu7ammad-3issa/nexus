@@ -20,7 +20,8 @@ mixin _$LeaderboardState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() leaderboardInitial,
     required TResult Function() leaderboardLoading,
-    required TResult Function(T data) leaderboardSuccess,
+    required TResult Function(List<LeaderboardUser?>? usersList)
+        leaderboardSuccess,
     required TResult Function(String error) leaderboardError,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ mixin _$LeaderboardState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? leaderboardInitial,
     TResult? Function()? leaderboardLoading,
-    TResult? Function(T data)? leaderboardSuccess,
+    TResult? Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult? Function(String error)? leaderboardError,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ mixin _$LeaderboardState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? leaderboardInitial,
     TResult Function()? leaderboardLoading,
-    TResult Function(T data)? leaderboardSuccess,
+    TResult Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult Function(String error)? leaderboardError,
     required TResult orElse(),
   }) =>
@@ -44,25 +45,25 @@ mixin _$LeaderboardState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LeaderboardInitial<T> value) leaderboardInitial,
-    required TResult Function(_LeaderboardLoading<T> value) leaderboardLoading,
-    required TResult Function(_LeaderboardSuccess<T> value) leaderboardSuccess,
-    required TResult Function(_LeaderboardError<T> value) leaderboardError,
+    required TResult Function(LeaderboardLoading<T> value) leaderboardLoading,
+    required TResult Function(LeaderboardSuccess<T> value) leaderboardSuccess,
+    required TResult Function(LeaderboardError<T> value) leaderboardError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult? Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult? Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult? Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult? Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult? Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult? Function(LeaderboardError<T> value)? leaderboardError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult Function(LeaderboardError<T> value)? leaderboardError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +134,8 @@ class _$LeaderboardInitialImpl<T> implements _LeaderboardInitial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() leaderboardInitial,
     required TResult Function() leaderboardLoading,
-    required TResult Function(T data) leaderboardSuccess,
+    required TResult Function(List<LeaderboardUser?>? usersList)
+        leaderboardSuccess,
     required TResult Function(String error) leaderboardError,
   }) {
     return leaderboardInitial();
@@ -144,7 +146,7 @@ class _$LeaderboardInitialImpl<T> implements _LeaderboardInitial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? leaderboardInitial,
     TResult? Function()? leaderboardLoading,
-    TResult? Function(T data)? leaderboardSuccess,
+    TResult? Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult? Function(String error)? leaderboardError,
   }) {
     return leaderboardInitial?.call();
@@ -155,7 +157,7 @@ class _$LeaderboardInitialImpl<T> implements _LeaderboardInitial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? leaderboardInitial,
     TResult Function()? leaderboardLoading,
-    TResult Function(T data)? leaderboardSuccess,
+    TResult Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult Function(String error)? leaderboardError,
     required TResult orElse(),
   }) {
@@ -169,9 +171,9 @@ class _$LeaderboardInitialImpl<T> implements _LeaderboardInitial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LeaderboardInitial<T> value) leaderboardInitial,
-    required TResult Function(_LeaderboardLoading<T> value) leaderboardLoading,
-    required TResult Function(_LeaderboardSuccess<T> value) leaderboardSuccess,
-    required TResult Function(_LeaderboardError<T> value) leaderboardError,
+    required TResult Function(LeaderboardLoading<T> value) leaderboardLoading,
+    required TResult Function(LeaderboardSuccess<T> value) leaderboardSuccess,
+    required TResult Function(LeaderboardError<T> value) leaderboardError,
   }) {
     return leaderboardInitial(this);
   }
@@ -180,9 +182,9 @@ class _$LeaderboardInitialImpl<T> implements _LeaderboardInitial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult? Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult? Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult? Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult? Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult? Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult? Function(LeaderboardError<T> value)? leaderboardError,
   }) {
     return leaderboardInitial?.call(this);
   }
@@ -191,9 +193,9 @@ class _$LeaderboardInitialImpl<T> implements _LeaderboardInitial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult Function(LeaderboardError<T> value)? leaderboardError,
     required TResult orElse(),
   }) {
     if (leaderboardInitial != null) {
@@ -228,7 +230,7 @@ class __$$LeaderboardLoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
+class _$LeaderboardLoadingImpl<T> implements LeaderboardLoading<T> {
   const _$LeaderboardLoadingImpl();
 
   @override
@@ -251,7 +253,8 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() leaderboardInitial,
     required TResult Function() leaderboardLoading,
-    required TResult Function(T data) leaderboardSuccess,
+    required TResult Function(List<LeaderboardUser?>? usersList)
+        leaderboardSuccess,
     required TResult Function(String error) leaderboardError,
   }) {
     return leaderboardLoading();
@@ -262,7 +265,7 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? leaderboardInitial,
     TResult? Function()? leaderboardLoading,
-    TResult? Function(T data)? leaderboardSuccess,
+    TResult? Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult? Function(String error)? leaderboardError,
   }) {
     return leaderboardLoading?.call();
@@ -273,7 +276,7 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? leaderboardInitial,
     TResult Function()? leaderboardLoading,
-    TResult Function(T data)? leaderboardSuccess,
+    TResult Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult Function(String error)? leaderboardError,
     required TResult orElse(),
   }) {
@@ -287,9 +290,9 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LeaderboardInitial<T> value) leaderboardInitial,
-    required TResult Function(_LeaderboardLoading<T> value) leaderboardLoading,
-    required TResult Function(_LeaderboardSuccess<T> value) leaderboardSuccess,
-    required TResult Function(_LeaderboardError<T> value) leaderboardError,
+    required TResult Function(LeaderboardLoading<T> value) leaderboardLoading,
+    required TResult Function(LeaderboardSuccess<T> value) leaderboardSuccess,
+    required TResult Function(LeaderboardError<T> value) leaderboardError,
   }) {
     return leaderboardLoading(this);
   }
@@ -298,9 +301,9 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult? Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult? Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult? Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult? Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult? Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult? Function(LeaderboardError<T> value)? leaderboardError,
   }) {
     return leaderboardLoading?.call(this);
   }
@@ -309,9 +312,9 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult Function(LeaderboardError<T> value)? leaderboardError,
     required TResult orElse(),
   }) {
     if (leaderboardLoading != null) {
@@ -321,8 +324,8 @@ class _$LeaderboardLoadingImpl<T> implements _LeaderboardLoading<T> {
   }
 }
 
-abstract class _LeaderboardLoading<T> implements LeaderboardState<T> {
-  const factory _LeaderboardLoading() = _$LeaderboardLoadingImpl<T>;
+abstract class LeaderboardLoading<T> implements LeaderboardState<T> {
+  const factory LeaderboardLoading() = _$LeaderboardLoadingImpl<T>;
 }
 
 /// @nodoc
@@ -331,7 +334,7 @@ abstract class _$$LeaderboardSuccessImplCopyWith<T, $Res> {
           $Res Function(_$LeaderboardSuccessImpl<T>) then) =
       __$$LeaderboardSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T data});
+  $Res call({List<LeaderboardUser?>? usersList});
 }
 
 /// @nodoc
@@ -347,28 +350,36 @@ class __$$LeaderboardSuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? usersList = freezed,
   }) {
     return _then(_$LeaderboardSuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
+      freezed == usersList
+          ? _value._usersList
+          : usersList // ignore: cast_nullable_to_non_nullable
+              as List<LeaderboardUser?>?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
-  const _$LeaderboardSuccessImpl(this.data);
+class _$LeaderboardSuccessImpl<T> implements LeaderboardSuccess<T> {
+  const _$LeaderboardSuccessImpl(final List<LeaderboardUser?>? usersList)
+      : _usersList = usersList;
 
+  final List<LeaderboardUser?>? _usersList;
   @override
-  final T data;
+  List<LeaderboardUser?>? get usersList {
+    final value = _usersList;
+    if (value == null) return null;
+    if (_usersList is EqualUnmodifiableListView) return _usersList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'LeaderboardState<$T>.leaderboardSuccess(data: $data)';
+    return 'LeaderboardState<$T>.leaderboardSuccess(usersList: $usersList)';
   }
 
   @override
@@ -376,12 +387,13 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LeaderboardSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            const DeepCollectionEquality()
+                .equals(other._usersList, _usersList));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_usersList));
 
   /// Create a copy of LeaderboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -397,10 +409,11 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() leaderboardInitial,
     required TResult Function() leaderboardLoading,
-    required TResult Function(T data) leaderboardSuccess,
+    required TResult Function(List<LeaderboardUser?>? usersList)
+        leaderboardSuccess,
     required TResult Function(String error) leaderboardError,
   }) {
-    return leaderboardSuccess(data);
+    return leaderboardSuccess(usersList);
   }
 
   @override
@@ -408,10 +421,10 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? leaderboardInitial,
     TResult? Function()? leaderboardLoading,
-    TResult? Function(T data)? leaderboardSuccess,
+    TResult? Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult? Function(String error)? leaderboardError,
   }) {
-    return leaderboardSuccess?.call(data);
+    return leaderboardSuccess?.call(usersList);
   }
 
   @override
@@ -419,12 +432,12 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? leaderboardInitial,
     TResult Function()? leaderboardLoading,
-    TResult Function(T data)? leaderboardSuccess,
+    TResult Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult Function(String error)? leaderboardError,
     required TResult orElse(),
   }) {
     if (leaderboardSuccess != null) {
-      return leaderboardSuccess(data);
+      return leaderboardSuccess(usersList);
     }
     return orElse();
   }
@@ -433,9 +446,9 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LeaderboardInitial<T> value) leaderboardInitial,
-    required TResult Function(_LeaderboardLoading<T> value) leaderboardLoading,
-    required TResult Function(_LeaderboardSuccess<T> value) leaderboardSuccess,
-    required TResult Function(_LeaderboardError<T> value) leaderboardError,
+    required TResult Function(LeaderboardLoading<T> value) leaderboardLoading,
+    required TResult Function(LeaderboardSuccess<T> value) leaderboardSuccess,
+    required TResult Function(LeaderboardError<T> value) leaderboardError,
   }) {
     return leaderboardSuccess(this);
   }
@@ -444,9 +457,9 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult? Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult? Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult? Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult? Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult? Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult? Function(LeaderboardError<T> value)? leaderboardError,
   }) {
     return leaderboardSuccess?.call(this);
   }
@@ -455,9 +468,9 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult Function(LeaderboardError<T> value)? leaderboardError,
     required TResult orElse(),
   }) {
     if (leaderboardSuccess != null) {
@@ -467,10 +480,11 @@ class _$LeaderboardSuccessImpl<T> implements _LeaderboardSuccess<T> {
   }
 }
 
-abstract class _LeaderboardSuccess<T> implements LeaderboardState<T> {
-  const factory _LeaderboardSuccess(final T data) = _$LeaderboardSuccessImpl<T>;
+abstract class LeaderboardSuccess<T> implements LeaderboardState<T> {
+  const factory LeaderboardSuccess(final List<LeaderboardUser?>? usersList) =
+      _$LeaderboardSuccessImpl<T>;
 
-  T get data;
+  List<LeaderboardUser?>? get usersList;
 
   /// Create a copy of LeaderboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -514,7 +528,7 @@ class __$$LeaderboardErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
+class _$LeaderboardErrorImpl<T> implements LeaderboardError<T> {
   const _$LeaderboardErrorImpl(this.error);
 
   @override
@@ -550,7 +564,8 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() leaderboardInitial,
     required TResult Function() leaderboardLoading,
-    required TResult Function(T data) leaderboardSuccess,
+    required TResult Function(List<LeaderboardUser?>? usersList)
+        leaderboardSuccess,
     required TResult Function(String error) leaderboardError,
   }) {
     return leaderboardError(error);
@@ -561,7 +576,7 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? leaderboardInitial,
     TResult? Function()? leaderboardLoading,
-    TResult? Function(T data)? leaderboardSuccess,
+    TResult? Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult? Function(String error)? leaderboardError,
   }) {
     return leaderboardError?.call(error);
@@ -572,7 +587,7 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? leaderboardInitial,
     TResult Function()? leaderboardLoading,
-    TResult Function(T data)? leaderboardSuccess,
+    TResult Function(List<LeaderboardUser?>? usersList)? leaderboardSuccess,
     TResult Function(String error)? leaderboardError,
     required TResult orElse(),
   }) {
@@ -586,9 +601,9 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LeaderboardInitial<T> value) leaderboardInitial,
-    required TResult Function(_LeaderboardLoading<T> value) leaderboardLoading,
-    required TResult Function(_LeaderboardSuccess<T> value) leaderboardSuccess,
-    required TResult Function(_LeaderboardError<T> value) leaderboardError,
+    required TResult Function(LeaderboardLoading<T> value) leaderboardLoading,
+    required TResult Function(LeaderboardSuccess<T> value) leaderboardSuccess,
+    required TResult Function(LeaderboardError<T> value) leaderboardError,
   }) {
     return leaderboardError(this);
   }
@@ -597,9 +612,9 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult? Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult? Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult? Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult? Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult? Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult? Function(LeaderboardError<T> value)? leaderboardError,
   }) {
     return leaderboardError?.call(this);
   }
@@ -608,9 +623,9 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LeaderboardInitial<T> value)? leaderboardInitial,
-    TResult Function(_LeaderboardLoading<T> value)? leaderboardLoading,
-    TResult Function(_LeaderboardSuccess<T> value)? leaderboardSuccess,
-    TResult Function(_LeaderboardError<T> value)? leaderboardError,
+    TResult Function(LeaderboardLoading<T> value)? leaderboardLoading,
+    TResult Function(LeaderboardSuccess<T> value)? leaderboardSuccess,
+    TResult Function(LeaderboardError<T> value)? leaderboardError,
     required TResult orElse(),
   }) {
     if (leaderboardError != null) {
@@ -620,8 +635,8 @@ class _$LeaderboardErrorImpl<T> implements _LeaderboardError<T> {
   }
 }
 
-abstract class _LeaderboardError<T> implements LeaderboardState<T> {
-  const factory _LeaderboardError(final String error) =
+abstract class LeaderboardError<T> implements LeaderboardState<T> {
+  const factory LeaderboardError(final String error) =
       _$LeaderboardErrorImpl<T>;
 
   String get error;

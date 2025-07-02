@@ -3,10 +3,10 @@ part 'leaderboard_response_model.g.dart';
 
 @JsonSerializable()
 class LeaderboardResponseModel {
-  List<LeaderboardUser> users;
+  List<LeaderboardUser?>? usersList;
 
   LeaderboardResponseModel({
-    required this.users,
+    this.usersList,
   });
 
   factory LeaderboardResponseModel.fromJson(Map<String, dynamic> json) =>
