@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../../../../core/constants/assets.dart';
 import '../../../../../core/helpers/helper_methods/spacing.dart';
@@ -67,12 +68,10 @@ class RankingsListView extends StatelessWidget {
           ),
           CircleAvatar(
             radius: 22.r,
-            backgroundImage: (
-              image != null
-                  ? NetworkImage(image)
-                  : const AssetImage(Assets.imagesDefaultUser),
-            ) as ImageProvider,
             backgroundColor: Colors.white,
+            backgroundImage: image != null
+                ? CachedNetworkImageProvider(image)
+                : const AssetImage(Assets.imagesDefaultUser) as ImageProvider,
           ),
           const Spacer(flex: 1),
           Text(

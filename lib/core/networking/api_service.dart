@@ -38,5 +38,5 @@ abstract class ApiService {
   );
 
   @GET(ApiConstants.leaderboardEndpoint)
-  Future<LeaderboardResponseModel> getLeaderboardUsersList();
+  Future<List<LeaderboardUser>> getLeaderboardUsersList();
 }
