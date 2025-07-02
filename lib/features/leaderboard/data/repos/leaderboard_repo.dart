@@ -7,7 +7,7 @@ class LeaderboardRepo {
   final ApiService _leaderboardApiService;
 
   LeaderboardRepo(this._leaderboardApiService);
-  Future<ApiResult<LeaderboardResponseModel>> getLeaderboardUsersList() async {
+  Future<ApiResult<List<LeaderboardUser>>> getLeaderboardUsersList() async {
     try {
       final response = await _leaderboardApiService.getLeaderboardUsersList();
       return ApiResult.success(response);

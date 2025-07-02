@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/features/leaderboard/data/models/leaderboard_response_model.dart';
@@ -73,11 +74,10 @@ class TopThreePodium extends StatelessWidget {
               ),
               child: CircleAvatar(
                 radius: 33.5.r,
-                backgroundImage: (
-                  user?.photoUrl != null
-                      ? NetworkImage(user!.photoUrl!)
-                      : const AssetImage(Assets.imagesDefaultUser),
-                ) as ImageProvider,
+                backgroundImage: user?.photoUrl != null
+                    ? CachedNetworkImageProvider(user!.photoUrl!)
+                    : const AssetImage(Assets.imagesDefaultUser)
+                        as ImageProvider,
                 backgroundColor: Colors.white,
               ),
             ),

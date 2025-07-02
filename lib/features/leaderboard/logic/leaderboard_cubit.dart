@@ -11,10 +11,9 @@ class LeaderboardCubit extends Cubit<LeaderboardState> {
     emit(const LeaderboardState.leaderboardLoading());
     final response = await _leaderboardRepo.getLeaderboardUsersList();
     response.when(
-      success: (leaderboardResponseModel) {
+      success: (usersList) {
         emit(
-          LeaderboardState.leaderboardSuccess(
-              leaderboardResponseModel.usersList),
+          LeaderboardState.leaderboardSuccess(usersList),
         );
       },
       failure: (error) {
