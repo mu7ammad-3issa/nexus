@@ -17,7 +17,8 @@ import '../../features/chatbot/screens/chat_screen.dart';
 import '../../features/chatbot/screens/start_chat_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/home/presentation/screens/notifications_screen.dart';
-import '../../features/leaderboard/leaderboard_screen.dart';
+import '../../features/leaderboard/logic/leaderboard_cubit.dart';
+import '../../features/leaderboard/ui/leaderboard_screen.dart';
 import '../../features/plans/subscription_screen.dart';
 import '../../features/profile/presentation/screens/about_us_screen.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
@@ -82,10 +83,6 @@ class AppRouter {
             create: (context) => getIt<ResetPasswordCubit>(),
             child: ResetPasswordScreen(otp: otp),
           ),
-
-        return MaterialPageRoute(
-          builder: (_) => const ResetPasswordScreen(),
-
           settings: settings,
         );
       case Routes.appLayoutScreen:
@@ -155,7 +152,11 @@ class AppRouter {
         );
       case Routes.leaderboardScreen:
         return MaterialPageRoute(
-          builder: (_) => const LeaderboardScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                getIt<LeaderboardCubit>()..getLeaderboardUsersList(),
+            child: const LeaderboardScreen(),
+          ),
           settings: settings,
         );
       case Routes.notificationsSettingsScreen:

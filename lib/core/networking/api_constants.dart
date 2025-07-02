@@ -5,6 +5,7 @@ class ApiConstants {
   static const String forgotPasswordEndpoint = 'Auth/forgot-password';
   static const String verifyOtpEndpoint = 'Auth/verify-otp';
   static const String resetPasswordEndpoint = 'Auth/reset-password';
+  static const String leaderboardEndpoint = 'Leaderboard/top';
 }
 
 class ApiErrors {
