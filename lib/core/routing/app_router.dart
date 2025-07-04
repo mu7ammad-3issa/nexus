@@ -5,6 +5,7 @@ import 'package:nexus/features/auth/forgot_password/logic/forgot_password_cubit.
 import 'package:nexus/features/auth/otp/logic/verify_otp_cubit.dart';
 import 'package:nexus/features/auth/reset_password/logic/reset_password_cubit.dart';
 import 'package:nexus/features/auth/sign_up/logic/sign_up_cubit.dart';
+import 'package:nexus/features/burn_scan/ui/screens/classification_screen.dart';
 import 'package:nexus/features/layout/app_layout.dart';
 import '../../features/auth/forgot_password/ui/forgot_password_screen.dart';
 import '../../features/auth/login/logic/login_cubit.dart';
@@ -12,7 +13,7 @@ import '../../features/auth/login/ui/login_screen.dart';
 import '../../features/auth/otp/ui/otp_screen.dart';
 import '../../features/auth/reset_password/ui/reset_password_screen.dart';
 import '../../features/auth/sign_up/ui/sign_up_screen.dart';
-import '../../features/burn_scan/ui/burn_scan_screen.dart';
+import '../../features/burn_scan/ui/screens/burn_scan_screen.dart';
 import '../../features/chatbot/screens/chat_screen.dart';
 import '../../features/chatbot/screens/start_chat_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
@@ -162,6 +163,11 @@ class AppRouter {
       case Routes.notificationsSettingsScreen:
         return MaterialPageRoute(
           builder: (_) => const NotificationsSettingsScreen(),
+          settings: settings,
+        );
+      case Routes.classificationScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ClassificationScreen(),
           settings: settings,
         );
 
