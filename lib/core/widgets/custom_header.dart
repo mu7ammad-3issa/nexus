@@ -6,13 +6,14 @@ import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
 
 class CustomHeader extends StatelessWidget {
-  const CustomHeader({super.key, required this.text});
+  const CustomHeader({super.key, required this.text, this.padding});
   final String text;
+  final double? padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: context.horizontal(24.w),
+      padding: context.horizontal(padding ?? 24.w),
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -32,6 +33,7 @@ class CustomHeader extends StatelessWidget {
           Text(
             text,
             style: AppStyles.aldrichRegular20Violet50,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

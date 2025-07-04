@@ -47,10 +47,16 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
-	    <key>LSApplicationQueriesSchemes</key>
-        <array>
-            <string>sms</string>
-            <string>tel</string>
-        </array>	
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>sms</string>
+			<string>tel</string>
+		</array>
+		<key>NSCameraUsageDescription</key>
+		<string>This app needs access to the camera to scan burns.</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>This app needs access to the photo library to select burn images.</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>This app needs access to the microphone to record videos.</string>
 	</dict>
 </plist>

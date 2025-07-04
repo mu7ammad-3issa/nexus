@@ -74,6 +74,10 @@ class Assets {
 
   static const String imagesChatContainerBackground = "assets/images/chat_container_background.png";
 
+  static const String imagesClassificationBackground = "assets/images/classification_background.png";
+
+  static const String imagesClassificationBgVector = "assets/images/classification_bg_vector.png";
+
   static const String imagesContactUsBackground = "assets/images/contact_us_background.png";
 
   static const String imagesDefaultUser = "assets/images/default_user.png";

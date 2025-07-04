@@ -21,4 +21,5 @@ class Routes {
   static const String profileOptionsScreen = '/profileOptionsScreen';
   static const String notificationsSettingsScreen =
       '/notificationsSettingsScreen';
+  static const String classificationScreen = '/classificationScreen';
 }

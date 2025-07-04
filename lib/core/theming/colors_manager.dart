@@ -7,6 +7,8 @@ class ColorsManager {
   static const Color violet500 = Color(0xFF120F23);
   static const Color violet200 = Color(0xFF92919A);
   static const Color violet300 = Color(0xFF605E6C);
+  static const Color darkGray = Color(0xFFABABAB);
+  static const Color kohlDust = Color(0xFF201E29);
   static const Color lightGray = Color(0xFFF9F9F9);
   static const Color green500 = Color(0xFFA7EC29);
   static const Color grey200 = Color(0xFFD9D9D9);
@@ -27,4 +29,5 @@ class ColorsManager {
   static const Color errorRed = Color(0xFFB30303);
   static const Color premium = Color(0xFFFFC107);
   static const Color avatarBorder = Color(0xffFCD012);
+  static const Color mariGold = Color(0xffF4B400);
 }
