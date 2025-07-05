@@ -9,7 +9,6 @@ import 'package:nexus/core/widgets/custom_header.dart';
 import '../../../../core/constants/assets.dart';
 
 // A simple model to hold the classification data.
-// In a real app, this would come from your AI model's output.
 class BurnData {
   final String classification;
   final String severity;
