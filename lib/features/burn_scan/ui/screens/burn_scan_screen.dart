@@ -11,11 +11,15 @@ import 'package:nexus/core/widgets/custom_header.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
+
+import 'package:nexus/features/burn_scan/ui/screens/take_picture_screen.dart';
+
 import 'package:nexus/features/burn_scan/logic/burn_scan_cubit.dart';
 
 import '../../../../core/animations/custom_loading_indicator.dart';
 import '../../../../core/routing/routes.dart';
 import '../../logic/burn_scan_state.dart';
+
 
 class BurnScanScreen extends StatefulWidget {
   const BurnScanScreen({super.key});
@@ -60,8 +64,19 @@ class _BurnScanScreenState extends State<BurnScanScreen> {
                   style: AppStyles.aldrichRegular14Violet50,
                 ),
                 onTap: () async {
-                  _pickImage(ImageSource.camera);
                   Navigator.pop(context);
+                  // Navigate to the camera screen and wait for a result
+                  final imagePath = await Navigator.push<String>(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TakePictureScreen()),
+                  );
+                  // If an image was captured, update the state
+                  if (imagePath != null) {
+                    setState(() {
+                      _selectedImage = File(imagePath);
+                    });
+                  }
                 },
               ),
               ListTile(
