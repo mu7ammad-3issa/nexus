@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:nexus/features/auth/forgot_password/data/models/forgot_password_request_body.dart';
 import 'package:nexus/features/auth/login/data/models/login_request_body.dart';
@@ -8,6 +9,7 @@ import 'package:nexus/features/leaderboard/data/models/leaderboard_response_mode
 import 'package:retrofit/retrofit.dart';
 
 import '../../features/auth/reset_password/data/models/reset_password_request_body.dart';
+import '../../features/burn_scan/data/models/burn_analysis_response_model.dart';
 import 'api_constants.dart';
 part 'api_service.g.dart';
 
@@ -39,4 +41,10 @@ abstract class ApiService {
 
   @GET(ApiConstants.leaderboardEndpoint)
   Future<List<LeaderboardUser>> getLeaderboardUsersList();
+
+  @POST(ApiConstants.burnClassificationUrl)
+  @MultiPart()
+  Future<BurnAnalysisResponseModel> analyzeBurn(
+    @Part(name: "fileup") File image,
+  );
 }

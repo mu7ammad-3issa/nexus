@@ -13,6 +13,8 @@ import '../../features/auth/reset_password/data/repos/reset_password_repo.dart';
 import '../../features/auth/reset_password/logic/reset_password_cubit.dart';
 import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/logic/sign_up_cubit.dart';
+import '../../features/burn_scan/data/repos/burn_scan_repo.dart';
+import '../../features/burn_scan/logic/burn_scan_cubit.dart';
 import '../../features/leaderboard/data/repos/leaderboard_repo.dart';
 import '../../features/leaderboard/logic/leaderboard_cubit.dart';
 
@@ -48,4 +50,8 @@ Future<void> setupGetIt() async {
   // leaderboard
   getIt.registerLazySingleton<LeaderboardRepo>(() => LeaderboardRepo(getIt()));
   getIt.registerFactory<LeaderboardCubit>(() => LeaderboardCubit(getIt()));
+
+  // burn scan
+  getIt.registerLazySingleton<BurnScanRepo>(() => BurnScanRepo(getIt()));
+  getIt.registerFactory<BurnScanCubit>(() => BurnScanCubit(getIt()));
 }
