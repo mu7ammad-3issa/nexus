@@ -7,66 +7,26 @@ import 'package:nexus/core/theming/colors_manager.dart';
 import 'package:nexus/core/widgets/custom_header.dart';
 
 import '../../../../core/constants/assets.dart';
-
-// A simple model to hold the classification data.
-// In a real app, this would come from your AI model's output.
-class BurnData {
-  final String classification;
-  final String severity;
-  final String confidence;
-  final String description;
-  final List<String> symptoms;
-  final List<String> treatment;
-  final String healingTime;
-  final List<String> whenToSeekHelp;
-
-  BurnData({
-    required this.classification,
-    required this.severity,
-    required this.confidence,
-    required this.description,
-    required this.symptoms,
-    required this.treatment,
-    required this.healingTime,
-    required this.whenToSeekHelp,
-  });
-}
+import '../../data/models/burn_analysis_response_model.dart';
 
 class ClassificationScreen extends StatelessWidget {
-  const ClassificationScreen({super.key});
+  final BurnResult burnDetails;
+  const ClassificationScreen({
+    super.key,
+    required this.burnDetails,
+  });
+
+  Color _parseColor(String colorString) {
+    try {
+      return Color(int.parse(colorString.replaceFirst('#', '0xFF')));
+    } catch (e) {
+      // Return a default color if parsing fails
+      return ColorsManager.mariGold;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // --- MOCK DATA: Replace this with actual data from your model ---
-    final burnData = BurnData(
-      classification: 'Second-Degree Burn',
-      severity: 'MODERATE TO SEVERE',
-      confidence: '100%',
-      description:
-          'Second-degree burns affect both the outer layer and the underlying dermis. They cause pain, redness, swelling, and blistering.',
-      symptoms: [
-        'Deep redness and swelling',
-        'Blisters that may open',
-        'Wet or shiny appearance',
-        'Severe pain and tenderness',
-        'Fever if burn area is large',
-      ],
-      treatment: [
-        'Cool the area with running water for 15–20 minutes',
-        'Do NOT pop blisters',
-        'Apply antibiotic ointment (if recommended)',
-        'Cover with sterile, non-stick bandage',
-        'Stay hydrated and monitor for infection',
-      ],
-      healingTime: 'Expected healing time: 2–3 weeks.',
-      whenToSeekHelp: [
-        'If the burn is larger than 3 inches',
-        'Signs of infection (pus, fever, swelling)',
-        'If the burn is on face, hands, feet, or joints',
-      ],
-    );
-    // --- END OF MOCK DATA ---
-
     return Scaffold(
       body: Stack(
         children: [
@@ -87,7 +47,7 @@ class ClassificationScreen extends StatelessWidget {
                   verticalSpace(28),
                   CustomHeader(
                     padding: 0,
-                    text: 'Classification:\n ${burnData.classification}',
+                    text: 'Classification:\n ${burnDetails.classification}',
                   ),
                   verticalSpace(35),
                   // Severity Tag
@@ -96,28 +56,28 @@ class ClassificationScreen extends StatelessWidget {
                       padding:
                           context.symmetric(horizontal: 14.w, vertical: 12.h),
                       decoration: BoxDecoration(
-                        color: ColorsManager.mariGold,
+                        color: _parseColor(burnDetails.color).withOpacity(0.8),
                         borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Text(
-                        burnData.severity,
+                        burnDetails.severity.toUpperCase(),
                         style: AppStyles.aldrichRegular14Violet50
                             .copyWith(color: ColorsManager.kohlDust),
                       ),
                     ),
                   ),
                   verticalSpace(35),
-                  // Confidence and Warning
                   Text(
-                    'Confidence: ${burnData.confidence}',
+                    'Confidence: ${burnDetails.confidence}',
                     style: AppStyles.aldrichRegular14Violet50
                         .copyWith(color: ColorsManager.darkGray),
                   ),
                   verticalSpace(8),
                   Text(
                     'This burn may require medical attention depending on size and symptoms. Please monitor closely.',
-                    style: AppStyles.aldrichRegular14Violet50
-                        .copyWith(color: ColorsManager.mariGold),
+                    style: AppStyles.aldrichRegular14Violet50.copyWith(
+                      color: ColorsManager.mariGold,
+                    ),
                   ),
                   verticalSpace(30),
                   // Sections
@@ -125,7 +85,7 @@ class ClassificationScreen extends StatelessWidget {
                     context,
                     title: '📝 Description',
                     content: Text(
-                      burnData.description,
+                      burnDetails.description,
                       style: AppStyles.aldrichRegular14Violet50.copyWith(
                         color: Colors.white,
                       ),
@@ -133,19 +93,19 @@ class ClassificationScreen extends StatelessWidget {
                   ),
                   _buildSection(
                     context,
-                    title: '🩺 Symptoms',
-                    content: _buildBulletPointList(burnData.symptoms),
+                    title: '🤕 Symptoms',
+                    content: _buildBulletPointList(burnDetails.symptoms),
                   ),
                   _buildSection(
                     context,
                     title: '🧯 How to Treat',
-                    content: _buildBulletPointList(burnData.treatment),
+                    content: _buildBulletPointList(burnDetails.treatment),
                   ),
                   _buildSection(
                     context,
                     title: '⏳ Healing Time',
                     content: Text(
-                      burnData.healingTime,
+                      'Expected healing time: ${burnDetails.healingTime}',
                       style: AppStyles.aldrichRegular14Violet50.copyWith(
                         color: Colors.white,
                       ),
@@ -154,7 +114,12 @@ class ClassificationScreen extends StatelessWidget {
                   _buildSection(
                     context,
                     title: '🚨 When to Seek Medical Help',
-                    content: _buildBulletPointList(burnData.whenToSeekHelp),
+                    content: Text(
+                      burnDetails.whenToSeekHelp,
+                      style: AppStyles.aldrichRegular14Violet50.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                   verticalSpace(40),
                   // Disclaimer
