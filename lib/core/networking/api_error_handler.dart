@@ -21,9 +21,11 @@ class ApiErrorHandler {
         case DioExceptionType.badCertificate:
           return "Bad certificate from the server";
         case DioExceptionType.badResponse:
-          return error.response?.data ?? "Bad response from server";
+          return error.response?.data?.toString() ??
+              "Received an invalid response from the server";
         case DioExceptionType.sendTimeout:
           return "Send timeout in connection with the server";
+
         default:
           return "Something went wrong";
       }
