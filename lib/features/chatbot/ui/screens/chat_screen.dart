@@ -7,8 +7,8 @@ import 'package:nexus/core/widgets/app_text_form_field.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/chatbot/widgets/chat_header.dart';
-import 'package:nexus/features/chatbot/widgets/message_bubble.dart';
+import 'package:nexus/features/chatbot/ui/widgets/chat_header.dart';
+import 'package:nexus/features/chatbot/ui/widgets/message_bubble.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});

@@ -9,7 +9,7 @@ import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/routing/routes.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/chatbot/screens/start_chat_screen.dart';
+import 'package:nexus/features/chatbot/ui/screens/start_chat_screen.dart';
 import 'package:nexus/features/home/presentation/screens/home_screen.dart';
 import 'package:nexus/features/profile/presentation/widgets/profile_menu.dart';
 
