@@ -110,17 +110,45 @@ class _BurnScanScreenState extends State<BurnScanScreen> {
           listener: (context, state) {
             state.whenOrNull(
               burnScanSuccess: (response) {
-                final burnDetails = response.result;
-                context.pushNamed(
-                  Routes.classificationScreen,
-                  arguments: burnDetails,
-                );
+                if (response.result != null) {
+                  // --- CASE 1: A burn was detected ---
+                  final burnScanResponse = response;
+                  context.pushNamed(
+                    Routes.classificationScreen,
+                    arguments: burnScanResponse,
+                  );
+                } else {
+                  // --- CASE 2: No burn was detected ---
+                  // Show a dialog with the message from the API.
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      backgroundColor: ColorsManager.violet500,
+                      title: Text(
+                        response.message ?? 'Analysis Complete',
+                        style: AppStyles.poppinsSemiBold20Violet50,
+                      ),
+                      content: Text(
+                        response.recommendation ?? 'No burn was detected.',
+                        style: AppStyles.aldrichRegular14Violet50,
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: Text(
+                            'OK',
+                            style: AppStyles.aldrichRegular14Violet50
+                                .copyWith(color: ColorsManager.green500),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }
               },
               burnScanError: (errorMsg) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(errorMsg),
-                  ),
+                  SnackBar(content: Text(errorMsg)),
                 );
               },
             );

@@ -141,6 +141,17 @@ class AppRouter {
           ),
           settings: settings,
         );
+      case Routes.classificationScreen:
+        final burnScanResponse = arguments as BurnAnalysisResponseModel;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<BurnScanCubit>(),
+            child: ClassificationScreen(
+              response: burnScanResponse,
+            ),
+          ),
+          settings: settings,
+        );
       case Routes.notificationsScreen:
         return MaterialPageRoute(
           builder: (_) => const NotificationsScreen(),
@@ -170,18 +181,6 @@ class AppRouter {
           builder: (_) => const NotificationsSettingsScreen(),
           settings: settings,
         );
-      case Routes.classificationScreen:
-        final burnDetails = arguments as BurnResult;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<BurnScanCubit>(),
-            child: ClassificationScreen(
-              burnDetails: burnDetails,
-            ),
-          ),
-          settings: settings,
-        );
-
       default:
         return null;
     }
