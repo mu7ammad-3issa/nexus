@@ -10,10 +10,10 @@ import '../../../../core/constants/assets.dart';
 import '../../data/models/burn_analysis_response_model.dart';
 
 class ClassificationScreen extends StatelessWidget {
-  final BurnResult burnDetails;
+  final BurnAnalysisResponseModel response;
   const ClassificationScreen({
     super.key,
-    required this.burnDetails,
+    required this.response,
   });
 
   Color _parseColor(String colorString) {
@@ -27,6 +27,7 @@ class ClassificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final burnDetails = response.result!;
     return Scaffold(
       body: Stack(
         children: [
@@ -71,13 +72,6 @@ class ClassificationScreen extends StatelessWidget {
                     'Confidence: ${burnDetails.confidence}',
                     style: AppStyles.aldrichRegular14Violet50
                         .copyWith(color: ColorsManager.darkGray),
-                  ),
-                  verticalSpace(8),
-                  Text(
-                    'This burn may require medical attention depending on size and symptoms. Please monitor closely.',
-                    style: AppStyles.aldrichRegular14Violet50.copyWith(
-                      color: ColorsManager.mariGold,
-                    ),
                   ),
                   verticalSpace(30),
                   // Sections
@@ -125,7 +119,7 @@ class ClassificationScreen extends StatelessWidget {
                   // Disclaimer
                   Center(
                     child: Text(
-                      'This information is for guidance only. Always seek professional medical advice when needed.',
+                      response.disclaimer!,
                       textAlign: TextAlign.center,
                       style: AppStyles.aldrichRegular12Violet50
                           .copyWith(color: ColorsManager.darkGray),

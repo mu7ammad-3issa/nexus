@@ -6,13 +6,17 @@ part 'burn_analysis_response_model.g.dart';
 @JsonSerializable()
 class BurnAnalysisResponseModel {
   final bool error;
-  final BurnResult result;
-  final String disclaimer;
+  final BurnResult? result;
+  final String? message;
+  final String? recommendation;
+  final String? disclaimer;
 
   BurnAnalysisResponseModel({
     required this.error,
-    required this.result,
-    required this.disclaimer,
+    this.result,
+    this.message,
+    this.recommendation,
+    this.disclaimer,
   });
 
   factory BurnAnalysisResponseModel.fromJson(Map<String, dynamic> json) =>

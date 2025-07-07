@@ -10,8 +10,12 @@ BurnAnalysisResponseModel _$BurnAnalysisResponseModelFromJson(
         Map<String, dynamic> json) =>
     BurnAnalysisResponseModel(
       error: json['error'] as bool,
-      result: BurnResult.fromJson(json['result'] as Map<String, dynamic>),
-      disclaimer: json['disclaimer'] as String,
+      result: json['result'] == null
+          ? null
+          : BurnResult.fromJson(json['result'] as Map<String, dynamic>),
+      message: json['message'] as String?,
+      recommendation: json['recommendation'] as String?,
+      disclaimer: json['disclaimer'] as String?,
     );
 
 Map<String, dynamic> _$BurnAnalysisResponseModelToJson(
@@ -19,6 +23,8 @@ Map<String, dynamic> _$BurnAnalysisResponseModelToJson(
     <String, dynamic>{
       'error': instance.error,
       'result': instance.result,
+      'message': instance.message,
+      'recommendation': instance.recommendation,
       'disclaimer': instance.disclaimer,
     };
 
