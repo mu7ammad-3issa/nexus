@@ -8,7 +8,7 @@ import 'package:nexus/core/widgets/app_text_button.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 
-import '../../../core/theming/colors_manager.dart';
+import '../../../../core/theming/colors_manager.dart';
 
 class StartChatScreen extends StatelessWidget {
   const StartChatScreen({super.key});
