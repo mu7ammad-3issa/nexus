@@ -15,6 +15,8 @@ import '../../features/auth/sign_up/data/repos/sign_up_repo.dart';
 import '../../features/auth/sign_up/logic/sign_up_cubit.dart';
 import '../../features/burn_scan/data/repos/burn_scan_repo.dart';
 import '../../features/burn_scan/logic/burn_scan_cubit.dart';
+import '../../features/chatbot/data/repos/chatbot_repo.dart';
+import '../../features/chatbot/logic/chatbot_cubit.dart';
 import '../../features/leaderboard/data/repos/leaderboard_repo.dart';
 import '../../features/leaderboard/logic/leaderboard_cubit.dart';
 
@@ -54,4 +56,8 @@ Future<void> setupGetIt() async {
   // burn scan
   getIt.registerLazySingleton<BurnScanRepo>(() => BurnScanRepo(getIt()));
   getIt.registerFactory<BurnScanCubit>(() => BurnScanCubit(getIt()));
+
+  // chatbot
+  getIt.registerLazySingleton<ChatbotRepo>(() => ChatbotRepo(getIt()));
+  getIt.registerFactory<ChatbotCubit>(() => ChatbotCubit(getIt()));
 }
