@@ -25,13 +25,13 @@ import '../../features/leaderboard/logic/leaderboard_cubit.dart';
 import '../../features/leaderboard/ui/leaderboard_screen.dart';
 import '../../features/plans/logic/plans_cubit.dart';
 import '../../features/plans/ui/plans_screen.dart';
-import '../../features/profile/presentation/screens/about_us_screen.dart';
-import '../../features/profile/presentation/screens/contact_us_screen.dart';
-import '../../features/profile/presentation/screens/edit_profile_screen.dart';
-import '../../features/profile/presentation/screens/notifications_settings_screen.dart';
-import '../../features/profile/presentation/screens/privacy_screen.dart';
-import '../../features/profile/presentation/screens/profile_screen.dart';
-import '../../features/profile/presentation/screens/settings_screen.dart';
+import '../../features/profile/ui/screens/about_us_screen.dart';
+import '../../features/profile/ui/screens/contact_us_screen.dart';
+import '../../features/profile/ui/screens/edit_profile_screen.dart';
+import '../../features/profile/ui/screens/notifications_settings_screen.dart';
+import '../../features/profile/ui/screens/privacy_screen.dart';
+import '../../features/profile/ui/screens/profile_screen.dart';
+import '../../features/profile/ui/screens/settings_screen.dart';
 import 'routes.dart';
 
 class AppRouter {
