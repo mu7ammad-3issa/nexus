@@ -11,7 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-# State management.
+  # State management.
   flutter_bloc: ^9.1.0
   # Code generator (mainly used with cubit & retrofit).
   freezed: ^2.4.5
@@ -61,6 +61,8 @@ dependencies:
   pinput: ^5.0.1
   # Flutter plugin for launching a URL.
   url_launcher: ^6.3.1
+  # Flutter plugin for rendering Markdown, a lightweight markup language, into a Flutter widget.
+  flutter_markdown: ^0.7.1
 
 dev_dependencies:
   #A build system for Dart code generation and modular compilation

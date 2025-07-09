@@ -2,6 +2,8 @@ class ApiConstants {
   static const String baseUrl = 'http://nexus-apis.runasp.net/api/';
   static const String burnClassificationUrl =
       'https://skinburn-api.onrender.com/predictApi';
+  static const String chatBotUrl =
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={apiKey}';
   static const String loginEndpoint = 'Auth/signin';
   static const String signupEndpoint = 'Auth/signup';
   static const String forgotPasswordEndpoint = 'Auth/forgot-password';

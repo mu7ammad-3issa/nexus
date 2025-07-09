@@ -16,6 +16,7 @@ import '../../features/auth/reset_password/ui/reset_password_screen.dart';
 import '../../features/auth/sign_up/ui/sign_up_screen.dart';
 import '../../features/burn_scan/data/models/burn_analysis_response_model.dart';
 import '../../features/burn_scan/ui/screens/burn_scan_screen.dart';
+import '../../features/chatbot/logic/chatbot_cubit.dart';
 import '../../features/chatbot/ui/screens/chat_screen.dart';
 import '../../features/chatbot/ui/screens/start_chat_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
@@ -115,7 +116,10 @@ class AppRouter {
         );
       case Routes.chatScreen:
         return MaterialPageRoute(
-          builder: (_) => const ChatScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ChatbotCubit>(),
+            child: const ChatScreen(),
+          ),
           settings: settings,
         );
       case Routes.settingsScreen:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nexus/core/constants/assets.dart';
@@ -7,8 +8,13 @@ import 'package:nexus/core/widgets/app_text_form_field.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/chatbot/ui/widgets/chat_header.dart';
-import 'package:nexus/features/chatbot/ui/widgets/message_bubble.dart';
+import 'package:nexus/features/chatbot/data/models/message_model.dart';
+import 'package:nexus/features/chatbot/logic/chatbot_cubit.dart';
+import 'package:nexus/features/chatbot/logic/chatbot_state.dart';
+
+import '../widgets/chat_header.dart';
+import '../widgets/message_bubble.dart';
+import '../widgets/typing_indicator.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -18,19 +24,53 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final List<String> suggestions = [
+  final TextEditingController _messageController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
+
+  final List<String> _suggestions = [
     "How do I start a VR training session?",
     "How can I control a car if the brakes fail?",
     "How do I get the latest updates about VR training?",
-    "How do I start a VR training session?",
   ];
-  final List<String> userMessages = [];
-  final List<String> botResponses = [];
+
+  bool _showSuggestions = true;
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _sendMessage() {
+    final text = _messageController.text;
+    if (text.trim().isNotEmpty) {
+      context.read<ChatbotCubit>().sendMessage(text);
+      _messageController.clear();
+      if (_showSuggestions) {
+        setState(() {
+          _showSuggestions = false;
+        });
+      }
+    }
+  }
 
   void _handleSuggestionTap(String message) {
+    context.read<ChatbotCubit>().sendMessage(message);
     setState(() {
-      suggestions.clear();
-      userMessages.add(message);
+      _showSuggestions = false;
+    });
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
     });
   }
 
@@ -41,9 +81,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: [
             verticalSpace(20.h),
-            const ChatHeader(
-              text: 'Nexi ai',
-            ),
+            const ChatHeader(text: 'Nexi AI'),
             verticalSpace(26.h),
             SvgPicture.asset(
               Assets.imagesLogoWithoutName,
@@ -61,9 +99,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
                 decoration: BoxDecoration(
                   image: const DecorationImage(
-                    image: AssetImage(
-                      Assets.imagesChatContainerBackground,
-                    ),
+                    image: AssetImage(Assets.imagesChatContainerBackground),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.only(
@@ -74,21 +110,38 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: Column(
                   children: [
                     Expanded(
-                      child: ListView(
-                        children: [
-                          ...suggestions.map((message) => GestureDetector(
-                                onTap: () => _handleSuggestionTap(message),
-                                child:
-                                    SuggestionMessageBubble(message: message),
-                              )),
-                          ...userMessages.map(
-                              (message) => MessageBubble(message: message)),
-                          ...botResponses.map((message) =>
-                              MessageBubbleForBot(message: message)),
-                        ],
+                      child: BlocBuilder<ChatbotCubit, ChatbotState>(
+                        builder: (context, state) {
+                          _scrollToBottom();
+                          return ListView(
+                            controller: _scrollController,
+                            children: [
+                              if (_showSuggestions)
+                                ..._suggestions
+                                    .map((suggestion) => MessageBubble(
+                                          message: MessageModel(
+                                              text: suggestion,
+                                              sender: MessageSender.bot),
+                                          onTap: () =>
+                                              _handleSuggestionTap(suggestion),
+                                        )),
+                              // Conditionally render MessageBubble or TypingIndicator
+                              ...context.watch<ChatbotCubit>().messages.map(
+                                (msg) {
+                                  if (msg.isLoading) {
+                                    return const TypingIndicator();
+                                  } else {
+                                    return MessageBubble(message: msg);
+                                  }
+                                },
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     ),
                     AppTextFormField(
+                      controller: _messageController,
                       contentPadding: context.symmetric(
                         vertical: 20.h,
                         horizontal: 16.w,
@@ -99,12 +152,13 @@ class _ChatScreenState extends State<ChatScreen> {
                       ),
                       backgroundColor: Colors.transparent,
                       suffixIcon: IconButton(
-                        onPressed: () {},
+                        onPressed: _sendMessage,
                         icon: const Icon(
                           Icons.send,
                           color: ColorsManager.green500,
                         ),
                       ),
+                      onFieldSubmitted: (_) => _sendMessage(),
                     ),
                   ],
                 ),
