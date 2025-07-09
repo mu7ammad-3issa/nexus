@@ -23,7 +23,8 @@ import '../../features/home/ui/screens/home_screen.dart';
 import '../../features/home/ui/screens/notifications_screen.dart';
 import '../../features/leaderboard/logic/leaderboard_cubit.dart';
 import '../../features/leaderboard/ui/leaderboard_screen.dart';
-import '../../features/plans/ui/subscription_screen.dart';
+import '../../features/plans/logic/plans_cubit.dart';
+import '../../features/plans/ui/plans_screen.dart';
 import '../../features/profile/presentation/screens/about_us_screen.dart';
 import '../../features/profile/presentation/screens/contact_us_screen.dart';
 import '../../features/profile/presentation/screens/edit_profile_screen.dart';
@@ -101,7 +102,10 @@ class AppRouter {
         );
       case Routes.subscriptionScreen:
         return MaterialPageRoute(
-          builder: (_) => const SubscriptionScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PlansCubit>()..getPlans(),
+            child: const PlansScreen(),
+          ),
           settings: settings,
         );
       case Routes.profileScreen:

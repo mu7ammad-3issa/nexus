@@ -13,6 +13,7 @@ import '../../features/auth/reset_password/data/models/reset_password_request_bo
 import '../../features/burn_scan/data/models/burn_analysis_response_model.dart';
 import '../../features/chatbot/data/models/chat_request_body.dart';
 import '../../features/chatbot/data/models/chat_response_model.dart';
+import '../../features/plans/data/models/plans_response_model.dart';
 import 'api_constants.dart';
 part 'api_service.g.dart';
 
@@ -58,4 +59,6 @@ abstract class ApiService {
     @retrofit.Path("apiKey") String apiKey,
     @retrofit.Body() ChatRequestBody requestBody,
   );
+  @retrofit.GET(ApiConstants.plansEndpoint)
+  Future<List<PlansResponseModel>> getPlans();
 }

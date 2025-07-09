@@ -19,6 +19,8 @@ import '../../features/chatbot/data/repos/chatbot_repo.dart';
 import '../../features/chatbot/logic/chatbot_cubit.dart';
 import '../../features/leaderboard/data/repos/leaderboard_repo.dart';
 import '../../features/leaderboard/logic/leaderboard_cubit.dart';
+import '../../features/plans/data/repos/plans_repo.dart';
+import '../../features/plans/logic/plans_cubit.dart';
 
 final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
@@ -60,4 +62,8 @@ Future<void> setupGetIt() async {
   // chatbot
   getIt.registerLazySingleton<ChatbotRepo>(() => ChatbotRepo(getIt()));
   getIt.registerFactory<ChatbotCubit>(() => ChatbotCubit(getIt()));
+
+  // plans
+  getIt.registerLazySingleton<PlansRepo>(() => PlansRepo(getIt()));
+  getIt.registerFactory<PlansCubit>(() => PlansCubit(getIt()));
 }
