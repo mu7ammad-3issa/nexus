@@ -8,7 +8,7 @@ import 'package:nexus/core/widgets/custom_header.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/plans/widgets/subscription_header.dart';
+import 'package:nexus/features/plans/ui/widgets/subscription_header.dart';
 
 class SubscriptionScreen extends StatefulWidget {
   const SubscriptionScreen({
