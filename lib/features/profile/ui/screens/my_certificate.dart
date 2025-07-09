@@ -5,7 +5,7 @@ import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
 import 'package:nexus/core/widgets/custom_header.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
-import 'package:nexus/features/profile/presentation/widgets/my_certificate_card.dart';
+import 'package:nexus/features/profile/ui/widgets/my_certificate_card.dart';
 
 class MyCertificate extends StatelessWidget {
   const MyCertificate({super.key});

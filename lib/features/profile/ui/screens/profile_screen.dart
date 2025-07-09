@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/widgets/custom_header.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
-import 'package:nexus/features/profile/presentation/widgets/profile_info.dart';
-import 'package:nexus/features/profile/presentation/widgets/profile_options.dart';
+import 'package:nexus/features/profile/ui/widgets/profile_info.dart';
+import 'package:nexus/features/profile/ui/widgets/profile_options.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

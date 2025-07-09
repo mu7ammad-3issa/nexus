@@ -8,7 +8,7 @@ import 'package:nexus/core/widgets/custom_header.dart';
 import 'package:nexus/core/helpers/helper_methods/spacing.dart';
 import 'package:nexus/core/theming/app_styles.dart';
 import 'package:nexus/core/theming/colors_manager.dart';
-import 'package:nexus/features/profile/presentation/widgets/edit_profile_info.dart';
+import 'package:nexus/features/profile/ui/widgets/edit_profile_info.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
