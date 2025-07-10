@@ -32,6 +32,7 @@ import '../../features/profile/ui/screens/notifications_settings_screen.dart';
 import '../../features/profile/ui/screens/privacy_screen.dart';
 import '../../features/profile/ui/screens/profile_screen.dart';
 import '../../features/profile/ui/screens/settings_screen.dart';
+import '../../features/resources/ui/screens/resources_screen.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -187,6 +188,11 @@ class AppRouter {
       case Routes.notificationsSettingsScreen:
         return MaterialPageRoute(
           builder: (_) => const NotificationsSettingsScreen(),
+          settings: settings,
+        );
+      case Routes.resourcesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ResourcesScreen(),
           settings: settings,
         );
       default:
