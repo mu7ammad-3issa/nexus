@@ -22,4 +22,5 @@ class Routes {
   static const String notificationsSettingsScreen =
       '/notificationsSettingsScreen';
   static const String classificationScreen = '/classificationScreen';
+  static const String resourcesScreen = '/resourcesScreen';
 }

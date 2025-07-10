@@ -82,7 +82,11 @@ class Assets {
 
   static const String imagesDefaultUser = "assets/images/default_user.png";
 
+  static const String imagesDefaultVideoImage = "assets/images/default_video_image.png";
+
   static const String imagesDialogLogo = "assets/images/dialog_logo.svg";
+
+  static const String imagesFireEscapePlan = "assets/images/fire_escape_plan.png";
 
   static const String imagesForgetPasswordWavyLine = "assets/images/forget_password_wavy_line.png";
 
