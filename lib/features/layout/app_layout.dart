@@ -50,11 +50,13 @@ class _AppLayoutState extends State<AppLayout> {
   }
 
   void onItemTapped(int index) {
-    pageController.jumpToPage(index);
-    setState(() {
-      selectedPageIndex = index;
-    });
-    SystemSound.play(SystemSoundType.alert);
+    if (index < screens.length) {
+      pageController.jumpToPage(index);
+      setState(() {
+        selectedPageIndex = index;
+      });
+      SystemSound.play(SystemSoundType.alert);
+    }
   }
 
   @override
@@ -83,39 +85,29 @@ class _AppLayoutState extends State<AppLayout> {
           notchMargin: 8,
           clipBehavior: Clip.antiAlias,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: navItems.asMap().entries.map((entry) {
-              int index = entry.key;
-              var item = entry.value;
-              // Build the nav item and conditionally add spacing after it
-              return Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _buildCustomNavItem(index, item['icon'], item['label']),
-                  // Add spacing after each item except the last one
-                  if (index < navItems.length - 1) ...[
-                    if (index == 1)
-                      horizontalSpace(
-                          95) // Larger space between Chatbot and Plans
-                    else
-                      horizontalSpace(43), // Default spacing
-                  ],
-                ],
-              );
-            }).toList(),
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildCustomNavItem(0, navItems[0]['icon'], navItems[0]['label']),
+              _buildCustomNavItem(1, navItems[1]['icon'], navItems[1]['label']),
+              const SizedBox(width: 40), // Space for the FAB
+              _buildCustomNavItem(2, navItems[2]['icon'], navItems[2]['label']),
+              _buildCustomNavItem(3, navItems[3]['icon'], navItems[3]['label']),
+            ],
           ),
         ),
       ),
     );
 
     return Scaffold(
-      // extendBody: true, // to show the content of the screen under and between the FAB and the bottom app bar
+      extendBody: true, // Allow the body to extend behind the BottomAppBar
       key: _scaffoldKey,
       drawer: const ProfileMenu(
         userName: 'Esraa Morsii',
         userEmail: 'esraamorsii13@gmail.com',
       ),
       body: SafeArea(
+        bottom:
+            false, // Prevent the body from being pushed up by the system navigation bar
         child: PopScope(
           canPop: false,
           child: PageView(
