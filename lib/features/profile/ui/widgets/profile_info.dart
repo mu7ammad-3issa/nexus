@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nexus/core/constants/assets.dart';
 import 'package:nexus/core/helpers/base_extensions/context/padding.dart';
@@ -18,24 +19,26 @@ class ProfileInfo extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-              color: const Color(0xffFCD012),
+              color: ColorsManager.avatarBorder,
               width: 2.w,
             ),
           ),
-          child: CircleAvatar(
-            radius: 65.r,
-            backgroundColor: ColorsManager.violet50,
-            child: Image.asset(Assets.imagesUserDefault),
+          child: ClipOval(
+            child: CircleAvatar(
+              radius: 65.r,
+              backgroundColor: ColorsManager.violet50,
+              child: Image.asset(Assets.imagesDefaultUser),
+            ),
           ),
         ),
-        verticalSpace(20.h),
+        verticalSpace(20),
         Text(
-          'Esraa Morsii',
+          'Muhammad Issa',
           style: AppStyles.aldrichRegular24white.copyWith(
             color: ColorsManager.violet50,
           ),
         ),
-        verticalSpace(25.h),
+        verticalSpace(25),
         RichText(
           text: TextSpan(
             text: 'Subscription: ',
@@ -50,7 +53,49 @@ class ProfileInfo extends StatelessWidget {
             ],
           ),
         ),
-        verticalSpace(21.h),
+        verticalSpace(16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'ID : NXU48231',
+              style: AppStyles.aldrichRegular14Violet50.copyWith(
+                color: Colors.white.withOpacity(0.44),
+              ),
+            ),
+            horizontalSpace(12),
+            SizedBox(
+              height: 28.h,
+              child: OutlinedButton(
+                onPressed: () {
+                  Clipboard.setData(const ClipboardData(text: 'NXU48231'));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'ID Copied to Clipboard!',
+                        style: AppStyles.aldrichRegular14Violet50,
+                      ),
+                      backgroundColor: ColorsManager.violet200,
+                    ),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: ColorsManager.green500),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                ),
+                child: Text(
+                  'Copy',
+                  style: AppStyles.aldrichRegular12Violet50
+                      .copyWith(color: ColorsManager.green500),
+                ),
+              ),
+            )
+          ],
+        ),
+        verticalSpace(21),
         Padding(
           padding: context.symmetric(horizontal: 24.w),
           child: LinearProgressIndicator(
