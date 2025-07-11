@@ -1,5 +1,5 @@
 name: nexus
-description: "A new Flutter project."
+description: "Companion mobile app for the Nexus VR emergency response simulator."
 publish_to: 'none' 
 
 version: 1.0.0+1
@@ -67,10 +67,30 @@ dependencies:
 dev_dependencies:
   #A build system for Dart code generation and modular compilation
   build_runner: ^2.4.7
+  #A package which simplifies the task of updating your Flutter app's launcher icon.
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-
+# Auto generate for app icons  
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logo.png"
+  adaptive_icon_background: "#120F23"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/app_logo.png"
+    background_color: "#120F23"
+    theme_color: "#A7EC29"
+  windows:
+    generate: true
+    image_path: "assets/images/app_logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/app_logo.png"
 
 flutter_assets:
   assets_path: assets/
