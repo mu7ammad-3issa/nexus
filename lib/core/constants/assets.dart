@@ -100,7 +100,7 @@ class Assets {
 
   static const String imagesLogo = "assets/images/logo.png";
 
-  static const String imagesLogoWithoutName = "assets/images/logo_without_name.svg";
+  static const String imagesLogoWithoutName = "assets/images/logo_without_name.png";
 
   static const String imagesLogoutDialog = "assets/images/logout_dialog.png";
 
