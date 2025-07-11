@@ -68,6 +68,8 @@ class Assets {
 
   static const String imagesAndroid12Splash = "assets/images/android_12_splash.png";
 
+  static const String imagesAppLogo = "assets/images/app_logo.png";
+
   static const String imagesBasicPlan = "assets/images/basic_plan.svg";
 
   static const String imagesCertificate = "assets/images/certificate.png";
