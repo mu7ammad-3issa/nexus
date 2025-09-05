@@ -6,11 +6,11 @@ Nexus is a Flutter-based companion mobile app for a VR emergency response simula
 
 ## 🎥 Demo
 
-
-
-https://github.com/user-attachments/assets/990ab423-5d43-4db3-b680-8e5cd0a1a011
-
-
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/990ab423-5d43-4db3-b680-8e5cd0a1a011" width="300" autoplay loop muted>
+    Your browser does not support the video tag.
+  </video>
+</p>
 
 -----
 
@@ -134,3 +134,4 @@ A basic widget test example is provided in `test/widget_test.dart`.
 ## 🤝 Contributing
 
 Contributions are welcome\! Please follow the existing code style and structure.
+
