@@ -1,116 +1,136 @@
-# Nexus
+# Nexus - VR Emergency Response Companion
 
-Nexus is a companion mobile app for a VR emergency response simulator. This Flutter-based application is designed to provide users with a platform to train, prepare, and stay safe during emergencies.
+**Version:** 1.0.0+1
 
-## Features
+Nexus is a Flutter-based companion mobile app for a VR emergency response simulator, designed to provide users with a platform to train, prepare, and stay safe during emergencies.
 
-  * **Authentication:** Secure user authentication (sign-up, sign-in, and password reset).
-  * **VR Training Integration:** Seamlessly connects with a VR emergency response simulator.
-  * **Burn Scan & Analysis:** Analyzes images of burns to classify them and provide treatment recommendations.
-  * **AI Chatbot "Nexi":** An intelligent chatbot to answer questions about safety and emergencies.
-  * **Leaderboard:** Tracks user progress and ranks them on a leaderboard.
-  * **Subscription Plans:** Offers different subscription plans (Basic and Premium) with varying features.
-  * **User Profile Management:** Allows users to view and edit their profiles, track their training progress, and manage certificates.
-  * **Resource Center:** Provides articles and videos on safety and emergency preparedness.
-  * **Notifications:** Keeps users informed with relevant notifications.
+## 🎥 Demo
 
-## Getting Started
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+https://github.com/user-attachments/assets/990ab423-5d43-4db3-b680-8e5cd0a1a011
+
+
+
+-----
+
+## 🎨 System Design
+
+The project follows a feature-first architecture, with a clear separation of concerns between core functionalities and feature-specific modules.
+
+```plaintext
+lib/
+├── core/                  # Core modules and shared utilities
+│   ├── di/                # Dependency injection configuration (get_it)
+│   ├── helpers/           # Common utility classes and functions (constants, extensions, shared_pref_helper, spacing)
+│   ├── networking/        # HTTP client setup (Dio + Retrofit)
+│   ├── routing/           # Navigation and route management
+│   ├── theming/           # App-wide theme and style definitions (colors, font_weight_helper, styles)
+│   └── widgets/           # Shared reusable widgets (app_text_button, app_text_form_field)
+│
+├── features/              # Feature-specific modules
+│   └── feature_name/      # Individual feature module (e.g., login, home, profile)
+│       ├── data/          # Data layer for handling business logic
+│       │   ├── models/    # Data models specific to the feature
+│       │   └── repos/     # Repositories for data operations
+│       │
+│       ├── logic/         # Business logic and state management
+│       │   ├── cubit/     # Cubit for state management
+│       │   └── states/    # State definitions for the cubit
+│       │
+│       └── ui/            # Presentation layer
+│           ├── widgets/   # Feature-specific reusable widgets
+│           └── screens/   # Screen implementations for the feature
+│
+└── main.dart              # Main entry point for the application
+```
+
+-----
+
+## ✨ Features
+
+  * **Authentication:** Secure sign-up, sign-in, and password reset.
+  * **VR Training Integration:** Seamless connection with a VR emergency response simulator.
+  * **Burn Scan & Analysis:** Classifies burn images and provides treatment recommendations.
+  * **AI Chatbot "Nexi":** An intelligent chatbot for safety and emergency questions.
+  * **Leaderboard:** Tracks and ranks user progress.
+  * **Subscription Plans:** Offers Basic and Premium subscription tiers.
+  * **User Profile Management:** View and edit profiles, track training progress, and manage certificates.
+  * **Resource Center:** Provides safety articles and videos.
+  * **Notifications:** Keeps users informed with relevant alerts.
+
+-----
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-  * [Flutter SDK](https://flutter.dev/docs/get-started/install)
-  * [Android Studio](https://developer.android.com/studio) or [Visual Studio Code](https://code.visualstudio.com/)
-  * An Android or iOS emulator, or a physical device
+  * Flutter SDK: Version 3.19.0 or higher
+  * Dart: Version 3.3.0 or higher
 
 ### Installation
 
 1.  **Clone the repository:**
-    ```sh
+    ```bash
     git clone https://github.com/mu7ammad-3issa/nexus.git
-    ```
-2.  **Navigate to the project directory:**
-    ```sh
     cd nexus
     ```
-3.  **Install dependencies:**
-    ```sh
+2.  **Install Flutter dependencies:**
+    ```bash
     flutter pub get
     ```
 
-## Usage
+### Running the App
 
-To run the app, use the following command:
-
-```sh
+```bash
 flutter run
 ```
 
-## Folder Structure
+-----
 
-The project is organized into the following directories:
+## 🛠️ Built With
 
-  * **`lib/`**: Contains the main Dart code for the application.
-      * `core/`: Core components like constants, dependency injection, routing, and themes.
-      * `features/`:  Feature-based modules, each containing its own data, logic, and UI.
-      * `main.dart`: The entry point of the application.
-  * **`assets/`**: Includes all static assets like images, icons, and Lottie animations.
-  * **`android/`**, **`ios/`**, **`linux/`**, **`macos/`**, **`web/`**, **`windows/`**: Platform-specific code and configurations.
-  * **`test/`**: Contains widget and unit tests.
+  * **Flutter** - UI toolkit for building natively compiled applications.
+  * **Dart** - Programming language used by Flutter.
+  * **flutter\_bloc/Cubit** - State management solution.
+  * **get\_it** - Service locator for dependency injection.
+  * **dio** - HTTP client for Dart.
+  * **retrofit** - Type-safe HTTP client generator for Dio.
+  * **freezed** - Code generator for immutable classes.
+  * **json\_serializable** - For automatic JSON serialization/deserialization.
+  * **flutter\_secure\_storage** - For secure data storage.
+  * **shared\_preferences** - For simple key-value data storage.
+  * **flutter\_screenutil** - For adapting screen and font size.
+  * **lottie** - For rendering Lottie animations.
 
-## API Reference
+-----
 
-The application interacts with the following API endpoints:
+## ⚙️ Project Structure Highlights
 
-  * **Authentication:**
-      * `POST /api/Auth/signin`
-      * `POST /api/Auth/signup`
-      * `POST /api/Auth/forgot-password`
-      * `POST /api/Auth/verify-otp`
-      * `POST /api/Auth/reset-password`
-  * **Leaderboard:**
-      * `GET /api/Leaderboard/top`
-  * **Plans:**
-      * `GET /api/Plans`
-  * **External APIs:**
-      * **Burn Classification:** `https://skinburn-api.onrender.com/predictApi`
-      * **Chatbot:** `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
+  * **Core:** Contains shared modules for:
+      * Dependency Injection (`get_it`)
+      * Networking (Dio, Retrofit, API constants, error handling)
+      * Routing (`AppRouter`, named routes)
+      * Helpers (Validators, Constants, Extensions, Shared Preferences)
+      * Theming (Colors, Fonts, Styles)
+      * Shared Widgets
+  * **Features:** Each feature (e.g., Auth, Home, Profile, Chatbot) is modularized with its own data, logic (Cubit), and UI layers.
+  * **Splash Screen:** Configured via `flutter_native_splash.yaml`.
 
-## Dependencies
+-----
 
-This project relies on several key packages:
+## 🔧 Linting
 
-  * **State Management:**
-      * `flutter_bloc`
-      * `freezed`
-  * **Networking:**
-      * `dio`
-      * `retrofit`
-  * **UI:**
-      * `flutter_screenutil`
-      * `flutter_svg`
-      * `google_fonts`
-      * `lottie`
-  * **Local Storage:**
-      * `shared_preferences`
-      * `flutter_secure_storage`
+The project uses `flutter_lints` for static analysis to encourage good coding practices. Custom lint rules are configured in `analysis_options.yaml`.
 
-For a complete list of dependencies, see the `pubspec.yaml` file.
+-----
 
-## Contributing
+## 🧪 Testing
 
-Contributions are welcome\! If you'd like to contribute, please follow these steps:
+A basic widget test example is provided in `test/widget_test.dart`.
 
-1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/your-feature-name`).
-3.  Make your changes.
-4.  Commit your changes (`git commit -m 'Add some feature'`).
-5.  Push to the branch (`git push origin feature/your-feature-name`).
-6.  Open a pull request.
+-----
 
-## License
+## 🤝 Contributing
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-Would you like me to add a "Screenshots" or "Demo" section with images from the project to make your README even more engaging?
+Contributions are welcome\! Please follow the existing code style and structure.
